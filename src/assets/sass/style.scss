@@ -1,0 +1,35 @@
+@import './components/animation';
+@import './components/mixins';
+@import './components/variables';
+@import './components/normalize';
+@import './components/reset';
+@import './blocks/main';
+@import './blocks/header';
+
+body {
+    @include montserrat;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1590px;
+    padding: 0 10px;
+    margin: 0 auto;
+    @media(max-width: 1589px) {
+        max-width: 1200px;
+    }
+    @media(max-width: 1199px) {
+        max-width: 960px;
+    }
+    @media(max-width: 991px) {
+        max-width: 720px;
+    }
+    @media(max-width: 767px) {
+        max-width: 540px;
+    }
+    @media(max-width: 575px) {
+        max-width: 100%;
+    }
+}
