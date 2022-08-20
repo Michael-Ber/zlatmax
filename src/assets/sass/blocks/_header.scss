@@ -54,7 +54,6 @@
 
     &__bottom {
         padding-top: 25px;
-        height: 90px;
     }
 
     &__favorites {
@@ -98,7 +97,7 @@
         position: relative;
         @media(max-width: 991px) {
             order: 4;
-            width: calc(100% - 120px);
+            width: calc(100% - 124px);
         }
         @media(max-width: 575px) {
             display: none;

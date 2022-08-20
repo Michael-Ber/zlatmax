@@ -5,6 +5,7 @@
 @import './components/reset';
 @import './blocks/main';
 @import './blocks/header';
+@import './blocks/footer';
 
 body {
     @include montserrat;
