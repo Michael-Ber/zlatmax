@@ -305,6 +305,12 @@ table {
     order: 2;
   }
 }
+@media (max-width: 575px) {
+  .header__main {
+    width: calc(100% - 45px);
+    justify-content: space-around;
+  }
+}
 .header__nav {
   width: 80%;
 }
@@ -331,6 +337,16 @@ table {
 .header__login::before {
   content: url("./assets/icons/main/login.svg");
   margin-right: 15px;
+}
+@media (max-width: 575px) {
+  .header__login span {
+    display: none;
+  }
+}
+@media (max-width: 575px) {
+  .header__login {
+    order: 2;
+  }
 }
 .header__bottom {
   padding-top: 25px;
@@ -428,6 +444,34 @@ table {
     display: none;
   }
 }
+.header__tel-sm {
+  display: none;
+  order: 1;
+  max-width: 27px;
+}
+@media (max-width: 575px) {
+  .header__tel-sm {
+    display: block;
+  }
+}
+.header__favorites-sm {
+  display: none;
+  order: 3;
+}
+@media (max-width: 575px) {
+  .header__favorites-sm {
+    display: block;
+  }
+}
+.header__cort-sm {
+  display: none;
+  order: 4;
+}
+@media (max-width: 575px) {
+  .header__cort-sm {
+    display: block;
+  }
+}
 .header__burger {
   display: none;
   justify-content: center;
@@ -441,39 +485,44 @@ table {
     order: 1;
   }
 }
+@media (max-width: 575px) {
+  .header__burger {
+    order: 5;
+  }
+}
 .header__burger-menu {
   display: none;
 }
 
 .burger-header__line {
   display: block;
-  width: 30px;
-  height: 2px;
+  width: 28px;
+  height: 3px;
   background-color: #ffffff;
 }
 .burger-header__line + .burger-header__line {
   margin-top: 8px;
 }
+@media (max-width: 575px) {
+  .burger-header__line + .burger-header__line {
+    margin-top: 4px;
+  }
+}
 
 .up-header__wrapper {
-  display: flex;
+  display: block;
   justify-content: space-between;
   align-items: center;
 }
+@media (max-width: 767px) {
+  .up-header__wrapper {
+    display: flex;
+  }
+}
 
 .cort-header__total {
-  position: absolute;
   top: 0;
   right: -5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 14px;
-  height: 14px;
-  border-radius: 100%;
-  background-color: #e8aa31;
-  font-size: 8px;
-  color: #ffffff;
 }
 .cort-header__img {
   position: relative;
@@ -507,6 +556,28 @@ table {
   .cort-header__sum {
     font-size: 14px;
   }
+}
+
+.total {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  background-color: #e8aa31;
+  font-size: 8px;
+  color: #ffffff;
+}
+
+.cort-sm-header {
+  position: relative;
+  text-decoration: none;
+}
+.cort-sm-header__total {
+  top: 0;
+  right: -5px;
 }
 
 .recall-header__arrow {

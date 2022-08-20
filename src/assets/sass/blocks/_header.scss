@@ -12,6 +12,11 @@
         @media(max-width: 767px) {
             order: 2;
         }
+        @media(max-width: 575px) {
+            width: calc(100% - 45px);
+            justify-content: space-around;
+        }
+        
     }
 
     &__nav {
@@ -36,6 +41,14 @@
         &::before {
             content: url('./assets/icons/main/login.svg');
             margin-right: 15px;
+        }
+        span {
+            @media(max-width: 575px) {
+                display: none;
+            }
+        }
+        @media(max-width: 575px) {
+            order: 2;
         }
     }
 
@@ -128,6 +141,29 @@
         }
     }
 
+    &__tel-sm {
+        display: none;
+        order: 1;
+        max-width: 27px;
+        @media(max-width: 575px) {
+            display: block;
+        }
+    }
+    &__favorites-sm {
+        display: none;
+        order: 3;
+        @media(max-width: 575px) {
+            display: block;
+        }
+    }
+    &__cort-sm {
+        display: none;
+        order: 4;
+        @media(max-width: 575px) {
+            display: block;
+        }
+    }
+
     &__burger {
         display: none;
         justify-content: center;
@@ -138,6 +174,9 @@
             display: flex;
             order: 1;
         }
+        @media(max-width: 575px) {
+            order: 5;
+        }
     }
 
     &__burger-menu {
@@ -147,35 +186,33 @@
 .burger-header {
     &__line {
         display: block;
-        width: 30px;
-        height: 2px;
+        width: 28px;
+        height: 3px;
         background-color: #ffffff;
         & + & {
             margin-top: 8px;
+            @media(max-width: 575px) {
+                margin-top: 4px;
+            }
         }
     }
 }
 .up-header {
     &__wrapper {
-        display: flex;
+        display: block;
         justify-content: space-between;
         align-items: center;
+        @media(max-width: 767px) {
+            display: flex;
+        }
     }
 }
 .cort-header {
     &__total {
-        position: absolute;
+        
         top: 0;
         right: -5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 14px;
-        height: 14px;
-        border-radius: 100%;
-        background-color: $main-color;
-        font-size: 8px;
-        color: #ffffff;
+        
     }
     &__img {
         position: relative;
@@ -203,6 +240,26 @@
         @media(max-width: 767px) {
             font-size: 14px;
         }
+    }
+}
+.total {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    background-color: $main-color;
+    font-size: 8px;
+    color: #ffffff;
+}
+.cort-sm-header {
+    position: relative;
+    text-decoration: none;
+    &__total {
+        top: 0;
+        right: -5px;
     }
 }
 .recall-header {
