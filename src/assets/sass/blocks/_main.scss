@@ -8,7 +8,7 @@
     }
     &__tab {
         position: relative;
-        // box-shadow: 0px 4px rgba(53, 53, 53, .18);
+        box-shadow: 0px 4px rgba(35, 35, 35, .18);
     }
 
     &__benefits {
@@ -23,7 +23,6 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
-        // flex-wrap: wrap;
         list-style-type: none;
         column-gap: 150px;
     }
@@ -68,7 +67,7 @@
 
     &__contents {
         position: absolute;
-        top: 100%;
+        top: calc(100% + 1px);
         left: 0;
         right: 0;
         z-index: 100;
@@ -76,7 +75,6 @@
         margin-left: -(calc(($screen-mw - $container-mw) / 2));
         margin-right: -(calc(($screen-mw - $container-mw) / 2));
         background-color: $sec-color;
-        
     }
 
 }
@@ -125,7 +123,6 @@
         justify-content: flex-start;
         align-items: flex-start;
         flex-wrap: wrap;
-        // column-gap: 70px;
         list-style-type: none;
         padding-bottom: 30px;
         border-bottom: 1px solid $white30-color;
@@ -191,31 +188,8 @@
     }
 
 }
-// .item-content-main {
-//     span {
-//         display: block;
-//     }
-//     &__list {
-//         margin-top: 30px;
-//         li {
-//             margin-top: 20px;
-//         }
-//     }
-//     &__link {
-//         text-decoration: none;
-//         font-size: 16px;
-//         line-height: 20px;
-//         color: #ffffff;
-//         font-weight: 500;
-//         &:hover {
-//             color: $main-color;
-//         }
-//     }
-// }
-.slider-main {
 
-    &__wrapper {
-    }
+.slider-main {
 
     &__slide {
         display: none;
@@ -309,10 +283,5 @@
             top: 50%;
             right: 15%;
         }
-    }
-}
-.btn {
-
-    &_sm {
     }
 }
