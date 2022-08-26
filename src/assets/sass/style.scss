@@ -14,6 +14,19 @@ body {
     box-sizing: border-box;
 }
 
+.overlay {
+    display: none;
+    &_active {
+        display: block;
+        position: absolute;
+        background-color: transparent;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+}
+
 .container {
     max-width: $container-mw;
     // padding: 0 10px;

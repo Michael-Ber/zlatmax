@@ -1,8 +1,8 @@
 .header {
     &__up {
+        position: relative;
         padding: 25px 0;
         background-color: #141414;
-        
     }
 
     &__main {
@@ -179,7 +179,10 @@
     }
 
     &__burger-menu {
-        
+        display: none;
+        &_active {
+            display: block;
+        }
     }
 }
 .burger-header {
@@ -198,7 +201,6 @@
 }
 .up-header {
     &__wrapper {
-        position: relative;
         display: block;
         justify-content: space-between;
         align-items: center;
@@ -304,7 +306,6 @@
         position: absolute;
         top: 100%;
         left: 10%;
-        width: 140px;
         max-height: 0;
         overflow: hidden;
         list-style: none;
@@ -313,11 +314,13 @@
         box-sizing: content-box;
         transition: .5s all;
         z-index: 1000;
+        box-shadow: 0 0 20px $sec-color;
         &_active {
             padding: 5px;
         }
     } 
     &__item {
+        white-space: nowrap;
         & + & {
             margin-top: 10px;
         }
@@ -329,6 +332,9 @@
         text-decoration: none;
         &:hover {
             color: $main-color;
+        }
+        @media(max-width: 767px) {
+            font-size: 14px;
         }
     }
 }
@@ -386,9 +392,9 @@
     }
 }
 .burger-list {
-    position: relative;
+    // position: relative;
     overflow: hidden;
-    padding: 20px 20px 40px 20px;
+    // padding: 20px 20px 40px 20px;
     
 }
 .up-burger {
@@ -401,7 +407,7 @@
     }
 }
 .back-nav {
-    display: none;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     color: #ffffff;
@@ -416,6 +422,8 @@
     }
 }
 .close-nav {
+    display: block;
+    width: 100%;
     color: #ffffff;
     font-size: 20px;
     text-align: right;
@@ -426,15 +434,7 @@
     & + & {
         margin-top: 20px;
     }
-    &_next {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        &::after {
-            content: url('./assets/icons/main/arrow-right.svg');
-        }
-    }
+    
 }
 .link-nav {
     font-size: 16px;
@@ -443,6 +443,15 @@
     text-decoration: none;
     &:hover {
         color: $main-color;
+    }
+    &_next {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        &::after {
+            content: url('./assets/icons/main/arrow-right.svg');
+        }
     }
 }
 .burger-header {
@@ -456,31 +465,47 @@
         justify-content: flex-start;
         align-items: flex-start;
         position: absolute;
-        top: -25px;
+        top: 0;
         right: 0;
         width: 100%;
+        min-height: 100vh;
         background-color: $sec-color;
         z-index: 1000;
-        &_active {
-            display: flex;
-        }
     }
     &__nav {
-        flex: 0 0 100%;
+        position: relative;
+        flex: 0 0 calc(100% - 40px);
+        padding: 20px 20px 40px 20px;
     }
 
     &__nextlists {
-        flex: 0 0 100%;
-    }
-}
-.nextlists-menu {
-    &__list {
-        width: calc(100% - 40px);
+        display: block;
         position: absolute;
         top: 0;
         left: 0;
-        transform: translateX(100%);
+        right: 0;
+        flex: 0 0 100%;
+        min-height: 100vh;
+        transform: translateX(calc(100% + 40px));
+        transition: .2s all;
         background-color: $sec-color;
+        padding: 20px 20px 40px 20px;
+        &_active {
+            display: block;
+            transform: translateX(0);
+        }
+    }
+}
+.nextlists-menu {
+    &__up {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    &__list {
+        width: 100%;
         &_active {
             transform: translateX(0);
         }
@@ -489,7 +514,7 @@
         font-size: 16px;
         color: #ffffff;
         &_next {
-            @extend .item-nav_next;
+            @extend .link-nav_next;
         }
     }
 }
@@ -518,13 +543,13 @@
     }
 
     &__link {
-        // font-size: 16px;
-        // line-height: 20px;
-        // color: #ffffff;
-        // text-decoration: none;
-        // &:hover {
-        //     color: $main-color;
-        // }
+        font-size: 16px;
+        line-height: 20px;
+        color: #ffffff;
+        text-decoration: none;
+        &:hover {
+            color: $main-color;
+        }
     }
     &__up {
         // display: flex;

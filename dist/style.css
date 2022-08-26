@@ -658,6 +658,7 @@ table {
 }
 
 .header__up {
+  position: relative;
   padding: 25px 0;
   background-color: #141414;
 }
@@ -855,6 +856,13 @@ table {
     order: 5;
   }
 }
+.header__burger-menu {
+  display: none;
+}
+.header__burger-menu_active {
+  display: block;
+}
+
 .burger-header__line {
   display: block;
   width: 28px;
@@ -871,7 +879,6 @@ table {
 }
 
 .up-header__wrapper {
-  position: relative;
   display: block;
   justify-content: space-between;
   align-items: center;
@@ -991,7 +998,6 @@ table {
   position: absolute;
   top: 100%;
   left: 10%;
-  width: 140px;
   max-height: 0;
   overflow: hidden;
   list-style: none;
@@ -1000,9 +1006,13 @@ table {
   box-sizing: content-box;
   transition: 0.5s all;
   z-index: 1000;
+  box-shadow: 0 0 20px #141414;
 }
 .recall-header__list_active {
   padding: 5px;
+}
+.recall-header__item {
+  white-space: nowrap;
 }
 .recall-header__item + .recall-header__item {
   margin-top: 10px;
@@ -1015,6 +1025,11 @@ table {
 }
 .recall-header__sublink:hover {
   color: #e8aa31;
+}
+@media (max-width: 767px) {
+  .recall-header__sublink {
+    font-size: 14px;
+  }
 }
 
 .nav-header__list {
@@ -1069,9 +1084,7 @@ table {
 }
 
 .burger-list {
-  position: relative;
   overflow: hidden;
-  padding: 20px 20px 40px 20px;
 }
 
 .up-burger {
@@ -1085,7 +1098,7 @@ table {
 }
 
 .back-nav {
-  display: none;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   color: #ffffff;
@@ -1101,6 +1114,8 @@ table {
 }
 
 .close-nav {
+  display: block;
+  width: 100%;
   color: #ffffff;
   font-size: 20px;
   text-align: right;
@@ -1113,15 +1128,6 @@ table {
 .item-nav + .item-nav {
   margin-top: 20px;
 }
-.item-nav_next, .nextlists-menu__item_next {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-}
-.item-nav_next::after, .nextlists-menu__item_next::after {
-  content: url("./assets/icons/main/arrow-right.svg");
-}
 
 .link-nav {
   font-size: 16px;
@@ -1132,35 +1138,60 @@ table {
 .link-nav:hover {
   color: #e8aa31;
 }
+.link-nav_next, .nextlists-menu__item_next {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.link-nav_next::after, .nextlists-menu__item_next::after {
+  content: url("./assets/icons/main/arrow-right.svg");
+}
 
 .burger-menu-header__wrapper {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   position: absolute;
-  top: -25px;
+  top: 0;
   right: 0;
   width: 100%;
+  min-height: 100vh;
   background-color: #141414;
   z-index: 1000;
 }
-.burger-menu-header__wrapper_active {
-  display: flex;
-}
 .burger-menu-header__nav {
-  flex: 0 0 100%;
+  position: relative;
+  flex: 0 0 calc(100% - 40px);
+  padding: 20px 20px 40px 20px;
 }
 .burger-menu-header__nextlists {
-  flex: 0 0 100%;
-}
-
-.nextlists-menu__list {
-  width: calc(100% - 40px);
+  display: block;
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateX(100%);
+  right: 0;
+  flex: 0 0 100%;
+  min-height: 100vh;
+  transform: translateX(calc(100% + 40px));
+  transition: 0.2s all;
   background-color: #141414;
+  padding: 20px 20px 40px 20px;
+}
+.burger-menu-header__nextlists_active {
+  display: block;
+  transform: translateX(0);
+}
+
+.nextlists-menu__up {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.nextlists-menu__list {
+  width: 100%;
 }
 .nextlists-menu__list_active {
   transform: translateX(0);
@@ -1168,6 +1199,15 @@ table {
 .nextlists-menu__item {
   font-size: 16px;
   color: #ffffff;
+}
+.nav-burger__link {
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+.nav-burger__link:hover {
+  color: #e8aa31;
 }
 .footer__wrapper-outer {
   background-color: #141414;
@@ -1498,6 +1538,19 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.overlay {
+  display: none;
+}
+.overlay_active {
+  display: block;
+  position: absolute;
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 .container {
