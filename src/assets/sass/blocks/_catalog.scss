@@ -1,7 +1,7 @@
 .catalog {
     padding: 100px 0;
-    &__wrapper {
-        
+    @media(max-width: 575px) {
+        padding: 50px 0;
     }
 
     &__list {

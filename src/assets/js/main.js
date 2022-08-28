@@ -1,5 +1,6 @@
 'use strict';
 
+import Swiper, {Pagination} from 'swiper';
 import {telSpread} from './phoneSpread';
 
 //BURGER FUNCTION =============================================
@@ -116,8 +117,6 @@ window.addEventListener('DOMContentLoaded', () => {
     // END PHONE SPREAD ON HEADER
 
     //BURGER MENU
-
-    
     burger();
     //END BURGER MENU
 
@@ -127,7 +126,26 @@ window.addEventListener('DOMContentLoaded', () => {
     
     //END MAIN TABS
 
+    // BESTSELLERS SLIDER
 
+    const bestsellersSwiper = new Swiper('.bestsellers__slider', {
+        loop: true,
+        slideClass: 'slider-bestsellers__slide',
+        slideActiveClass: 'slider-bestsellers__slide_active',
+        wrapperClass: 'slider-bestsellers__wrapper',
+        modules: [Pagination],
+        pagination: {
+            el: '.slider-bestsellers__pagination',
+            clickable: true,
+            renderBullet: function(index, className) {
+                return '<div class="pagination-slider-bestsellers__bullet"><span class="pagination-slider-bestsellers__line"></span></div>'
+            },
+            bulletClass: 'pagination-slider-bestsellers__bullet',
+            bulletActiveClass: 'pagination-slider-bestsellers__bullet_active'
+        }
+    });
+
+    // END BESTSELLERS SLIDER
 
 
 });
