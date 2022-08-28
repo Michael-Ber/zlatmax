@@ -142,6 +142,38 @@ window.addEventListener('DOMContentLoaded', () => {
             },
             bulletClass: 'pagination-slider-bestsellers__bullet',
             bulletActiveClass: 'pagination-slider-bestsellers__bullet_active'
+
+            // el: '.slider-pagination',
+            // clickable: true,
+            // renderBullet: function(index, className) {
+            //     return '<div class="slider-pagination__bullet"><span class="slider-pagination__line"></span></div>'
+            // },
+            // bulletClass: 'slider-pagination__bullet',
+            // bulletActiveClass: 'slider-pagination__bullet_active'
+        }
+    });
+    const noveltySwiper = new Swiper('.novelty__slider', {
+        loop: true,
+        slideClass: 'slider-novelty__slide',
+        slideActiveClass: 'slider-novelty__slide_active',
+        wrapperClass: 'slider-novelty__wrapper',
+        modules: [Pagination],
+        pagination: {
+            el: '.slider-novelty__pagination',
+            clickable: true,
+            renderBullet: function(index, className) {
+                return '<div class="pagination-slider-novelty__bullet"><span class="pagination-slider-novelty__line"></span></div>'
+            },
+            bulletClass: 'pagination-slider-novelty__bullet',
+            bulletActiveClass: 'pagination-slider-novelty__bullet_active'
+
+            // el: '.slider-pagination',
+            // clickable: true,
+            // renderBullet: function(index, className) {
+            //     return '<div class="slider-pagination__bullet"><span class="slider-pagination__line"></span></div>'
+            // },
+            // bulletClass: 'slider-pagination__bullet',
+            // bulletActiveClass: 'slider-pagination__bullet_active'
         }
     });
 

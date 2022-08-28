@@ -1,0 +1,89 @@
+.novelty {
+    position: relative;
+    background: url('./assets/img/main/novelties-bg.png') 50% 50%/cover no-repeat;
+    max-height: 760px;
+    padding: 60px 0 45px 0;
+    z-index: 10;
+    &__content {
+        width: 340px;
+        height: 694px;
+        padding: 70px 390px 0 170px;
+        position: absolute;
+        top: -45px;
+        left: 0;
+        background: url('./assets/img/main/novelties-bg-sm.png') 50% 50%/cover no-repeat; 
+        z-index: 100;
+    }
+
+    &__slider {
+        width: 76%;
+        position: relative;
+        margin: 0 0 0 auto;
+        z-index: 1000;
+        overflow: hidden;
+    }
+}
+.content-novelty {
+
+    &__title {
+        color: #ffffff;
+    }
+
+    &__text {
+        font-size: 18px;
+        line-height: 27px;
+        color: $white70-color;
+        margin-top: 30px;
+    }
+
+    &__more {
+        display: block;
+        color: $main-color;
+        margin-top: 50px;
+    }
+}
+.slider-novelty {
+
+    &__wrapper {
+        display: flex;
+    }
+
+    &__slide {
+    }
+
+    &__pagination {
+        
+    }
+}
+.pagination-slider-novelty {
+    @extend .pagination-slider-bestsellers;
+    &__bullet {
+        @extend .pagination-slider-bestsellers__bullet;
+        &_active {
+            @extend .pagination-slider-bestsellers__bullet_active;
+        }
+    }
+    &__line {
+        @extend .pagination-slider-bestsellers__line;
+    }
+}
+
+.slide-novelty {
+
+    &__card {
+        background-color: #fff;
+    }
+}
+.stars-slide {
+
+    &__item {
+    }
+}
+.footer-slide {
+
+    &__links {
+    }
+
+    &__link {
+    }
+}
