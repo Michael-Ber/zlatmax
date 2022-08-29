@@ -13273,6 +13273,8 @@ window.addEventListener('DOMContentLoaded', () => {
     slideActiveClass: 'slider-novelty__slide_active',
     wrapperClass: 'slider-novelty__wrapper',
     modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"]],
+    slidesPerView: 1,
+    // slidesPerGroup: 3,
     pagination: {
       el: '.slider-novelty__pagination',
       clickable: true,
@@ -13280,14 +13282,18 @@ window.addEventListener('DOMContentLoaded', () => {
         return '<div class="pagination-slider-novelty__bullet"><span class="pagination-slider-novelty__line"></span></div>';
       },
       bulletClass: 'pagination-slider-novelty__bullet',
-      bulletActiveClass: 'pagination-slider-novelty__bullet_active' // el: '.slider-pagination',
-      // clickable: true,
-      // renderBullet: function(index, className) {
-      //     return '<div class="slider-pagination__bullet"><span class="slider-pagination__line"></span></div>'
-      // },
-      // bulletClass: 'slider-pagination__bullet',
-      // bulletActiveClass: 'slider-pagination__bullet_active'
-
+      bulletActiveClass: 'pagination-slider-novelty__bullet_active'
+    },
+    breakpoints: {
+      992: {
+        slidesPerView: 1
+      },
+      1200: {
+        slidesPerView: 2
+      },
+      1610: {
+        slidesPerView: 3
+      }
     }
   }); // END BESTSELLERS SLIDER
 });

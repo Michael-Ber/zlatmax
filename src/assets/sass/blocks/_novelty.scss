@@ -4,23 +4,56 @@
     max-height: 760px;
     padding: 60px 0 45px 0;
     z-index: 10;
+    @media(max-width: 575px) {
+        max-height: unset; 
+    };
+    &__wrapper {
+        @media(max-width: 575px) {
+            display: flex;
+            flex-direction: column;
+        }
+    }
     &__content {
-        width: 340px;
+        width: 18%;
         height: 694px;
-        padding: 70px 390px 0 170px;
+        padding: 70px 20% 0 7%;
         position: absolute;
         top: -45px;
         left: 0;
         background: url('./assets/img/main/novelties-bg-sm.png') 50% 50%/cover no-repeat; 
         z-index: 100;
+        @media(max-width: 1609px) {
+            width: 28%;
+        };
+        @media(max-width: 1199px) {
+            width: 34%;
+        };
+        @media(max-width: 575px) {
+            position: static;
+            width: calc(100% - 40px);
+            padding: 10px 20px;
+            height: unset;
+        };
     }
 
     &__slider {
-        width: 76%;
+        width: 1210px;
         position: relative;
         margin: 0 0 0 auto;
         z-index: 1000;
         overflow: hidden;
+        @media(max-width: 1609px) {
+            width: 730px;
+        };
+        @media(max-width: 1199px) {
+            width: 370px;
+        };
+        @media(max-width: 767px) {
+            width: 300px;
+        };
+        @media(max-width: 575px) {
+            margin: 60px auto 0 auto;
+        };
     }
 }
 .content-novelty {
@@ -46,13 +79,19 @@
 
     &__wrapper {
         display: flex;
+        column-gap: 30px;
+        @media(max-width: 767px) {
+            column-gap: 20px;
+        }
+        @media(max-width: 575px) {
+           column-gap: unset; 
+        };
     }
 
     &__slide {
-    }
-
-    &__pagination {
-        
+        @media(max-width: 1609px) {
+            justify-content: center;
+        }
     }
 }
 .pagination-slider-novelty {
@@ -69,21 +108,22 @@
 }
 
 .slide-novelty {
+    &__img-link {
+        @media(max-width: 767px) {
+            width: 240px;
+        };
+    }
 
     &__card {
         background-color: #fff;
-    }
-}
-.stars-slide {
-
-    &__item {
-    }
-}
-.footer-slide {
-
-    &__links {
-    }
-
-    &__link {
+        @media(max-width: 1609px) {
+            flex: 0 0 300px;
+        }
+        @media(max-width: 767px) {
+            flex: 0 0 240px;
+        };
+        @media(max-width: 575px) {
+            flex: 0 0 260px;
+        };
     }
 }

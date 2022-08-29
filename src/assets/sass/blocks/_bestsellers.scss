@@ -95,6 +95,9 @@
         @media(max-width: 1199px) {
             justify-content: center;
         }
+        @media(max-width: 575px) {
+            justify-content: center !important;
+        };
     }
 
 }
@@ -208,12 +211,6 @@
         line-height: 34px;
         font-weight: 600;
         color: $third-color;
-    }
-
-    &__size {
-    }
-
-    &__material {
     }
 
     &__rating {

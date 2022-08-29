@@ -1874,6 +1874,11 @@ table {
     justify-content: center;
   }
 }
+@media (max-width: 575px) {
+  .slider-bestsellers__slide {
+    justify-content: center !important;
+  }
+}
 
 .slide-common {
   display: flex;
@@ -2071,22 +2076,71 @@ table {
   padding: 60px 0 45px 0;
   z-index: 10;
 }
+@media (max-width: 575px) {
+  .novelty {
+    max-height: unset;
+  }
+}
+@media (max-width: 575px) {
+  .novelty__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .novelty__content {
-  width: 340px;
+  width: 18%;
   height: 694px;
-  padding: 70px 390px 0 170px;
+  padding: 70px 20% 0 7%;
   position: absolute;
   top: -45px;
   left: 0;
   background: url("./assets/img/main/novelties-bg-sm.png") 50% 50%/cover no-repeat;
   z-index: 100;
 }
+@media (max-width: 1609px) {
+  .novelty__content {
+    width: 28%;
+  }
+}
+@media (max-width: 1199px) {
+  .novelty__content {
+    width: 34%;
+  }
+}
+@media (max-width: 575px) {
+  .novelty__content {
+    position: static;
+    width: calc(100% - 40px);
+    padding: 10px 20px;
+    height: unset;
+  }
+}
 .novelty__slider {
-  width: 76%;
+  width: 1210px;
   position: relative;
   margin: 0 0 0 auto;
   z-index: 1000;
   overflow: hidden;
+}
+@media (max-width: 1609px) {
+  .novelty__slider {
+    width: 730px;
+  }
+}
+@media (max-width: 1199px) {
+  .novelty__slider {
+    width: 370px;
+  }
+}
+@media (max-width: 767px) {
+  .novelty__slider {
+    width: 300px;
+  }
+}
+@media (max-width: 575px) {
+  .novelty__slider {
+    margin: 60px auto 0 auto;
+  }
 }
 
 .content-novelty__title {
@@ -2106,9 +2160,46 @@ table {
 
 .slider-novelty__wrapper {
   display: flex;
+  column-gap: 30px;
+}
+@media (max-width: 767px) {
+  .slider-novelty__wrapper {
+    column-gap: 20px;
+  }
+}
+@media (max-width: 575px) {
+  .slider-novelty__wrapper {
+    column-gap: unset;
+  }
+}
+@media (max-width: 1609px) {
+  .slider-novelty__slide {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .slide-novelty__img-link {
+    width: 240px;
+  }
 }
 .slide-novelty__card {
   background-color: #fff;
+}
+@media (max-width: 1609px) {
+  .slide-novelty__card {
+    flex: 0 0 300px;
+  }
+}
+@media (max-width: 767px) {
+  .slide-novelty__card {
+    flex: 0 0 240px;
+  }
+}
+@media (max-width: 575px) {
+  .slide-novelty__card {
+    flex: 0 0 260px;
+  }
 }
 
 body {
