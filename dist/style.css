@@ -1761,79 +1761,79 @@ table {
 }
 
 @media (max-width: 575px) {
-  .bestsellers {
+  .bestsellers, .common {
     padding-bottom: 30px;
   }
 }
-.bestsellers__container {
+.bestsellers__container, .common__container {
   max-width: 1620px;
   overflow-x: hidden;
   margin: 0 auto;
 }
 @media (max-width: 1609px) {
-  .bestsellers__container {
+  .bestsellers__container, .common__container {
     max-width: calc(100% - 50px);
   }
 }
 @media (max-width: 1199px) {
-  .bestsellers__container {
+  .bestsellers__container, .common__container {
     max-width: 990px;
   }
 }
 @media (max-width: 991px) {
-  .bestsellers__container {
+  .bestsellers__container, .common__container {
     max-width: 750px;
   }
 }
 @media (max-width: 767px) {
-  .bestsellers__container {
+  .bestsellers__container, .common__container {
     max-width: 570px;
   }
 }
 @media (max-width: 575px) {
-  .bestsellers__container {
+  .bestsellers__container, .common__container {
     width: 100%;
   }
 }
-.bestsellers__header {
+.bestsellers__header, .common__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 @media (max-width: 575px) {
-  .bestsellers__header {
+  .bestsellers__header, .common__header {
     justify-content: center;
   }
 }
-.bestsellers__title {
+.bestsellers__title, .common__title {
   color: #141414;
 }
 @media (max-width: 575px) {
-  .bestsellers__title {
+  .bestsellers__title, .common__title {
     font-size: 24px;
   }
 }
 @media (max-width: 575px) {
-  .bestsellers__link {
+  .bestsellers__link, .common__link {
     display: none;
   }
 }
 @media (max-width: 575px) {
-  .bestsellers__link_bottom {
+  .bestsellers__link_bottom, .common__link_bottom {
     display: block;
     text-align: center;
   }
 }
 @media (min-width: 576px) {
-  .bestsellers__link_bottom {
+  .bestsellers__link_bottom, .common__link_bottom {
     display: none;
   }
 }
-.bestsellers__slider {
+.bestsellers__slider, .common__slider {
   margin: 60px auto 0 auto;
 }
 @media (max-width: 575px) {
-  .bestsellers__slider {
+  .bestsellers__slider, .common__slider {
     margin: 30px auto 0 auto;
   }
 }
@@ -1860,22 +1860,22 @@ table {
   margin-left: 5px;
 }
 
-.slider-bestsellers__wrapper {
+.slider-bestsellers__wrapper, .common-slider__wrapper {
   display: flex;
   column-gap: 10px;
 }
 @media (max-width: 575px) {
-  .slider-bestsellers__wrapper {
+  .slider-bestsellers__wrapper, .common-slider__wrapper {
     column-gap: 0;
   }
 }
 @media (max-width: 1199px) {
-  .slider-bestsellers__slide {
-    justify-content: center;
+  .slider-bestsellers__slide, .common-slider__slide {
+    justify-content: center !important;
   }
 }
 @media (max-width: 575px) {
-  .slider-bestsellers__slide {
+  .slider-bestsellers__slide, .common-slider__slide {
     justify-content: center !important;
   }
 }
@@ -1890,18 +1890,18 @@ table {
   flex: 0 0 100%;
 }
 
-.pagination-slider-bestsellers, .pagination-slider-novelty {
+.pagination-slider-common, .pagination-slider-novelty {
   display: flex;
   justify-content: center;
   column-gap: 17px;
   margin: 60px 0;
 }
 @media (max-width: 575px) {
-  .pagination-slider-bestsellers, .pagination-slider-novelty {
+  .pagination-slider-common, .pagination-slider-novelty {
     margin: 60px 0 20px 0;
   }
 }
-.pagination-slider-bestsellers__bullet, .pagination-slider-novelty__bullet {
+.pagination-slider-common__bullet, .pagination-slider-novelty__bullet {
   position: relative;
   display: flex;
   justify-content: center;
@@ -1910,10 +1910,10 @@ table {
   height: 20px;
   cursor: pointer;
 }
-.pagination-slider-bestsellers__bullet_active span, .pagination-slider-novelty__bullet_active span {
+.pagination-slider-common__bullet_active span, .pagination-slider-novelty__bullet_active span {
   background-color: #e8aa31;
 }
-.pagination-slider-bestsellers__bullet_active::before, .pagination-slider-novelty__bullet_active::before {
+.pagination-slider-common__bullet_active::before, .pagination-slider-novelty__bullet_active::before {
   content: "";
   display: block;
   position: absolute;
@@ -1926,7 +1926,7 @@ table {
   background-color: #e8aa31;
   animation: moveSlider 2s forwards;
 }
-.pagination-slider-bestsellers__line, .pagination-slider-novelty__line {
+.pagination-slider-common__line, .pagination-slider-novelty__line {
   display: block;
   width: 18px;
   height: 2px;
@@ -2200,6 +2200,13 @@ table {
   .slide-novelty__card {
     flex: 0 0 260px;
   }
+}
+
+.stock {
+  margin-top: 100px;
+}
+.stock__slider {
+  margin: 60px auto 0 auto;
 }
 
 body {

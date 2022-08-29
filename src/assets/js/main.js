@@ -138,18 +138,10 @@ window.addEventListener('DOMContentLoaded', () => {
             el: '.slider-bestsellers__pagination',
             clickable: true,
             renderBullet: function(index, className) {
-                return '<div class="pagination-slider-bestsellers__bullet"><span class="pagination-slider-bestsellers__line"></span></div>'
+                return '<div class="pagination-slider-common__bullet"><span class="pagination-slider-common__line"></span></div>'
             },
-            bulletClass: 'pagination-slider-bestsellers__bullet',
-            bulletActiveClass: 'pagination-slider-bestsellers__bullet_active'
-
-            // el: '.slider-pagination',
-            // clickable: true,
-            // renderBullet: function(index, className) {
-            //     return '<div class="slider-pagination__bullet"><span class="slider-pagination__line"></span></div>'
-            // },
-            // bulletClass: 'slider-pagination__bullet',
-            // bulletActiveClass: 'slider-pagination__bullet_active'
+            bulletClass: 'pagination-slider-common__bullet',
+            bulletActiveClass: 'pagination-slider-common__bullet_active'
         }
     });
     const noveltySwiper = new Swiper('.novelty__slider', {
@@ -181,6 +173,23 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+    const stockSwiper = new Swiper('.stock__slider', {
+        loop: true,
+        slideClass: 'slider-stock__slide',
+        slideActiveClass: 'slider-stock__slide_active',
+        wrapperClass: 'slider-stock__wrapper',
+        modules: [Pagination],
+        pagination: {
+            el: '.slider-stock__pagination',
+            clickable: true,
+            renderBullet: function(index, className) {
+                return '<div class="pagination-slider-common__bullet"><span class="pagination-slider-common__line"></span></div>'
+            },
+            bulletClass: 'pagination-slider-common__bullet',
+            bulletActiveClass: 'pagination-slider-common__bullet_active'
+        }
+    });
+
 
     // END BESTSELLERS SLIDER
 

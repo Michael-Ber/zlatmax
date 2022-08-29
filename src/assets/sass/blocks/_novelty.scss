@@ -95,15 +95,15 @@
     }
 }
 .pagination-slider-novelty {
-    @extend .pagination-slider-bestsellers;
+    @extend .pagination-slider-common;
     &__bullet {
-        @extend .pagination-slider-bestsellers__bullet;
+        @extend .pagination-slider-common__bullet;
         &_active {
-            @extend .pagination-slider-bestsellers__bullet_active;
+            @extend .pagination-slider-common__bullet_active;
         }
     }
     &__line {
-        @extend .pagination-slider-bestsellers__line;
+        @extend .pagination-slider-common__line;
     }
 }
 

@@ -1,4 +1,4 @@
-.bestsellers {
+.bestsellers, .common {
     @media(max-width: 575px) {
         padding-bottom: 30px;
     }
@@ -80,7 +80,7 @@
         margin-left: 5px;
     }
 }
-.slider-bestsellers {
+.slider-bestsellers, .common-slider {
 
     &__wrapper {
         display: flex;
@@ -93,7 +93,7 @@
     &__slide {
         
         @media(max-width: 1199px) {
-            justify-content: center;
+            justify-content: center !important;
         }
         @media(max-width: 575px) {
             justify-content: center !important;
@@ -110,7 +110,7 @@
     row-gap: 30px;
     flex: 0 0 100%;
 }
-.pagination-slider-bestsellers {
+.pagination-slider-common {
     display: flex;
     justify-content: center;
     column-gap: 17px;

@@ -9,6 +9,7 @@
 @import './blocks/catalog';
 @import './blocks/bestsellers';
 @import './blocks/novelty';
+@import './blocks/stock';
 
 body {
     @include montserrat;
