@@ -325,23 +325,7 @@
         }
     }
 }
-.btn {
-    display: block;
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 20px;
-    line-height: 46px;
-    text-align: center;
-    background-color: $main-color;
-    transition: .2s all;
-    cursor: pointer;
-    &:hover {
-        background-color: darken($main-color, 10%);
-    }
-    &_sm {
-        width: 228px;
-    }
-}
+
 .slide-main {
     &__wrapper {
         position: relative;
