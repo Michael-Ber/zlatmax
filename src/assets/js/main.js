@@ -81,11 +81,54 @@ function tabs(tabsSelector, tabsContentSelector, tabsActive, contentActive, data
 
 //END TABS FUNCTION ==============================================
 
+// CATEGORY COST SCROLL (SLIDER) =======================================>
+
+function scrollBar(wrapper, maximum, colorTrack, colorActiveTrack) {
+    const scrollWrapper = document.querySelector(wrapper);
+    const scrollTracks = Array.from(scrollWrapper.children);
+    // scrollTracks.forEach(item => {
+    //     item.insertAdjacentHTML('afterend', `<span class=" slider-main__actual">${item.value}</span>`);
+    // });
+    let average1 = 10;
+    let average2 = 25;
+    let average1perc = average1 + '%';
+    let average2perc = average2 + '%';
+
+    scrollTracks[0].style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1perc}, ${colorActiveTrack} ${average1perc} ${average2perc}, ${colorTrack} ${average2perc} 100%)`;
+
+    scrollTracks[0].addEventListener('input', (e) => {
+        const elem = e.target;
+        const actual = document.querySelectorAll('.slider-num')[0];
+        const max = maximum;
+        average1 = Math.floor(elem.value * 100 / max);
+        average1perc = average1 + '%';
+        average2perc = average2 + '%';
+        actual.innerHTML = elem.value + ' руб.';
+
+        elem.style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1 > average2 ? average2perc : average1perc}, ${colorActiveTrack} ${average1 > average2 ? average2perc : average1perc} ${average2 < average1 ? average1perc : average2perc}, ${colorTrack} ${average2 < average1 ? average1perc : average2perc} 100%)`;
+    })
+
+    scrollTracks[1].addEventListener('input', (e) => {
+        const elem = e.target;
+        const actual = document.querySelectorAll('.slider-num')[1];
+        const max = maximum;
+        average2 = Math.floor(elem.value * 100 / max);
+        average1perc = average1 + '%';
+        average2perc = average2 + '%';
+        actual.innerHTML = elem.value + ' руб.';
+
+        scrollTracks[0].style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1 > average2 ? average2perc : average1perc}, ${colorActiveTrack} ${average1 > average2 ? average2perc : average1perc} ${average2 < average1 ? average1perc: average2perc}, ${colorTrack} ${average2 < average1 ? average1perc : average2perc} 100%)`;
+    })
+
+}
+
+// END CATEGORY COST SCROLL (SLIDER) =======================================>
 window.addEventListener('DOMContentLoaded', () => {
 
-    // image on main resize
+   try {
+     // image on main resize
     
-    window.addEventListener('resize', () => {
+     window.addEventListener('resize', () => {
         const benefitsElement = document.querySelector('.main__benefits');
         const screenWidth = window.screen.availWidth;
         if(screenWidth < 576) {
@@ -98,7 +141,7 @@ window.addEventListener('DOMContentLoaded', () => {
     })
     
     // end image on main resize
-
+   
     // PHONE SPREAD ON HEADER
 
     telSpread({
@@ -122,7 +165,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //MAIN TABS
     
-    tabs('.btns-tab-main__list', '.contents-tab-main__wrapper', 'btns-tab-main__item_active', 'contents-tab-main__content_active', 'data-tab');
+    try{
+        tabs('.btns-tab-main__list', '.contents-tab-main__wrapper', 'btns-tab-main__item_active', 'contents-tab-main__content_active', 'data-tab');
+    }catch(e) {
+        console.log(e);
+    }
     
     //END MAIN TABS
 
@@ -192,6 +239,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     // END BESTSELLERS SLIDER
+
+    // CATEGORY COST SCROLL(SLIDER) ========================================>
+    
+    scrollBar('.slider-main__wrapper', 20000,'#e8aa31', '#141414');
+
+    // END CATEGORY COST SCROLL(SLIDER) ========================================>
+
+   }catch(e) {
+    console.log(e);
+   }
 
 
 });

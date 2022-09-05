@@ -1,0 +1,444 @@
+.category {
+
+    &__title {
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: 700;
+    }
+
+    &__subheader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 25px;
+    }
+
+    &__select {
+        position: relative;
+        width: 374px;
+        padding: 10px 20px;
+        border: 1px solid rgba($fifth-color, .3);
+        border-radius: 5px;
+        
+        font-size: 16px;
+        line-height: 20px;
+        appearance: none;
+        -moz-appearance:none; 
+        -webkit-appearance:none;
+        cursor: pointer;
+        // background: url('./assets/icons/main/arrow-right.png') 98% 50% no-repeat;
+        
+        @media(max-width: 575px) {
+            padding: 10px 25px 6px 16px;
+            margin-left: 0;
+        }
+    }
+    &__option {
+
+    }
+
+    &__links {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    &__link {
+        // position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        line-height: 20px;
+        text-decoration: none;
+        color: $fourth-color;
+        transition: .2s all;
+        &_active {
+            color: $main-color;
+        }
+        &:hover {
+            color: $main-color;
+        }
+        &:nth-child(n):not(:last-child) {
+            &::after {
+                content: url('./assets/icons/main/arrow-right.png');
+                margin: 0 15px;
+            }
+        }
+    }
+
+    &__sort {
+        position: relative;
+        &::after {
+            content: url('./assets/icons/main/arrow-right.png');
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: rotate(90deg) translate(-50%, 100%);
+            pointer-events: none;
+        }
+    }
+
+    &__content {
+        
+    }
+}
+.content-category {
+
+    &__filter {
+        width: calc(25% - 85px);
+        margin-top: 20px;
+        padding: 0 30px;
+        border: 1px solid #000;
+    }
+
+    &__products {
+    }
+}
+.list-category {
+    margin: 20px 0 30px 0;
+}
+.filter-category {
+
+    &__cost {
+    }
+
+    &__accordeon {  
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        line-height: 25px;
+        font-weight: 600;
+        background-color: $sec-color;
+        color: #ffffff;
+        margin: 0 -30px 0 -30px;
+        padding: 13px 30px 13px 30px;
+        cursor: pointer;
+        &_lg {
+            font-weight: 700;
+            padding: 23px 30px 23px 30px;
+        }
+    }
+
+    &__img {
+        transform: rotate(180deg);
+    }
+
+    &__production {
+        margin-top: 80px;
+    }
+
+    &__steel {
+    }
+
+    &__handle {
+    }
+
+    &__guard {
+    }
+
+    &__gilding {
+    }
+
+    &__length-main {
+    }
+
+    &__length-blade {
+    }
+
+    &__width-blade {
+    }
+
+    &__rating {
+    }
+}
+.cost-filter {
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $third-color;
+    }
+
+    &__content {
+        margin-top: 30px;
+    }
+
+    &__title {
+        font-size: 20px;
+        line-height: 25px;
+        font-weight: 600;
+    }
+
+    &__slider {
+        margin-top: 30px;
+    }
+}
+.slider-cost {
+
+    &__min {
+    }
+
+    &__max {
+    }
+}
+.slider-main {
+
+    &__wrapper {
+        position: relative;
+        width: 100%;
+        margin: 30px 0 0 0 ;
+    }
+
+    &__input {
+    }
+
+    &__actual {
+        position: absolute;
+        top: 55px;
+        left: 5%;
+        transform: translateX(-50%);
+        font-size: 18px;
+        line-height: 20px;
+        font-weight: 300;
+        color: $sec-color;
+        &:last-child {
+            left: 80%;
+        }
+    }
+}
+
+// FOR SLIDER BAR
+
+.input-range {
+    position: absolute;
+    width: 100%;
+    -webkit-appearance: none;
+    left: 0;
+    top: 0;
+    height: 4px;
+    border-radius: 5px;
+    pointer-events: none;
+}
+#range-1 {
+    z-index: 1;
+}
+
+.input-range::-webkit-slider-thumb {
+    position: relative;
+    -webkit-appearance: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 100%;
+    background: $sec-color;
+    cursor: pointer;
+    box-shadow: 0 0 0 4px $main-color, 0 0 0 5px $main-color;
+    transition: background .3s ease-in-out;
+    pointer-events: all;
+    z-index: 10;
+}
+.input-range::-moz-range-thumb {
+    position: relative;
+    -webkit-appearance: none;
+    height: 14px;
+    width: 14px;
+    border-radius: 100%;
+    background: $third-color;
+    cursor: pointer;
+    box-shadow: 0 0 0 4px $main-color, 0 0 0 5px $main-color;
+    transition: background .3s ease-in-out;
+    pointer-events: all;
+    z-index: 10;
+}
+.input-range::-webkit-slider-runnable-track  {
+    -webkit-appearance: none;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+}
+
+// FOR SLIDER BAR 
+
+.slider-min {
+    border-right: 1px solid $third-color;
+}
+.slider-max {
+}
+.slider-num {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(50% - 5px);
+    height: 42px;
+}
+.production-category {
+
+    &__list {
+    }
+
+    &__item {
+    }
+
+    &__checkbox {
+    }
+}
+.category-item {
+    label {
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        cursor: pointer;
+        user-select: none;
+        input[type="checkbox"]:checked{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background-color: $main-color;
+        }
+        input[type="checkbox"]:checked ~ span::before {
+            border-color: $main-color;
+        }
+        span {
+            margin-left: 35px;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                border: 2px solid $fourth-color;
+            }
+        }
+        #production-1, #production-2, #production-3, #production-4, #production-5, #production-6, #production-7, #production-8, #production-1-9, #production-10, #production-11, #production-12, #production-13, #steel-1, #steel-2, #steel-3, #steel-4, #steel-5, #steel-6, #steel-7, #steel-8, #steel-9, #steel-10, #steel-11, #steel-12, #steel-13, #steel-14, #handle-1, #handle-2, #handle-3, #handle-4, #handle-5, #handle-6, #handle-7, #handle-8, #handle-9, #handle-10, #handle-11, #guard-1, #guard-2, #guard-3, #guard-4, #guard-5, #guard-6, #guard-7, #guard-8, #guard-9, #guard-10, #guard-11, #gilding-1, #gilding-2, #rating-1, #rating-2, #rating-3, #rating-4, #rating-5 {
+            appearance: none;
+        }
+    }
+    cursor: pointer;
+    & + & {
+        margin-top: 20px;
+    }
+}
+.category-input {
+}
+.steel-category {
+
+    &__list {
+    }
+
+    &__item {
+    }
+}
+.handle-category {
+
+    &__list {
+    }
+
+    &__item {
+    }
+}
+.guard-category {
+
+    &__list {
+    }
+
+    &__item {
+    }
+}
+.gilding-category {
+
+    &__list {
+    }
+
+    &__item {
+    }
+}
+.length-main-category {
+
+    &__slider {
+    }
+}
+.slider-length {
+
+    &__min {
+    }
+
+    &__max {
+    }
+}
+.length-blade-category {
+
+    &__slider {
+    }
+}
+.slider-blade {
+
+    &__min {
+    }
+
+    &__max {
+    }
+}
+.width-blade-category {
+
+    &__slider {
+    }
+}
+.slider-width {
+
+    &__min {
+    }
+
+    &__max {
+    }
+}
+.rating-category {
+
+    &__list {
+    }
+
+    &__item {
+    }
+}
+.products-category {
+
+    &__carousel {
+    }
+
+    &__wrapper {
+    }
+
+    &__slide {
+    }
+
+    &__more {
+    }
+
+    &__pagination {
+    }
+
+    &__navigation {
+    }
+}
+.stars-slide {
+
+    &__item {
+    }
+}
+.footer-slide {
+
+    &__links {
+    }
+
+    &__link {
+    }
+}
