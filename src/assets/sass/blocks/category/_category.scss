@@ -46,35 +46,7 @@
 
     }
 
-    &__links {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-    &__link {
-        // position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 16px;
-        line-height: 20px;
-        text-decoration: none;
-        color: $fourth-color;
-        transition: .2s all;
-        &_active {
-            color: $main-color;
-        }
-        &:hover {
-            color: $main-color;
-        }
-        &:nth-child(n):not(:last-child) {
-            &::after {
-                content: url('./assets/icons/main/arrow-right.png');
-                margin: 0 15px;
-            }
-        }
-    }
+    
 
     &__sort {
         position: relative;
@@ -102,6 +74,33 @@
         }
         @media(max-width: 575px) {
             padding: 20px 0 20px 0;
+        }
+    }
+}
+.links-common {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.link-common {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    color: $fourth-color;
+    transition: .2s all;
+    &_active {
+        color: $main-color;
+    }
+    &:hover {
+        color: $main-color;
+    }
+    &:nth-child(n):not(:last-child) {
+        &::after {
+            content: url('./assets/icons/main/arrow-right.png');
+            margin: 0 15px;
         }
     }
 }

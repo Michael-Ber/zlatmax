@@ -2566,31 +2566,6 @@ table {
     margin-top: 20px;
   }
 }
-.category__links {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.category__link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-  line-height: 20px;
-  text-decoration: none;
-  color: #898989;
-  transition: 0.2s all;
-}
-.category__link_active {
-  color: #e8aa31;
-}
-.category__link:hover {
-  color: #e8aa31;
-}
-.category__link:nth-child(n):not(:last-child)::after {
-  content: url("./assets/icons/main/arrow-right.png");
-  margin: 0 15px;
-}
 .category__sort {
   position: relative;
 }
@@ -2623,6 +2598,33 @@ table {
   .category__content {
     padding: 20px 0 20px 0;
   }
+}
+
+.links-common {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.link-common {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: none;
+  color: #898989;
+  transition: 0.2s all;
+}
+.link-common_active {
+  color: #e8aa31;
+}
+.link-common:hover {
+  color: #e8aa31;
+}
+.link-common:nth-child(n):not(:last-child)::after {
+  content: url("./assets/icons/main/arrow-right.png");
+  margin: 0 15px;
 }
 
 .content-category__filter {
@@ -3005,6 +3007,28 @@ table {
   }
 }
 
+.card-item__header {
+  margin-top: 30px;
+}
+.card-item__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+.content-card-item__left {
+  display: grid;
+  grid-template-columns: repeat(4, 177px);
+  grid-template-rows: 577px 195px;
+  grid-auto-rows: auto;
+  flex: 0 0 50%;
+}
+.content-card-item__lg-img {
+  grid-column: 1/5;
+}
+.content-card-item__right {
+  flex: 0 0 50%;
+}
 body {
   font-family: "Montserrat", sans-serif;
   margin: 0;
