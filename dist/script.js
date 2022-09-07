@@ -13209,20 +13209,20 @@ function tabs(tabsSelector, tabsContentSelector, tabsActive, contentActive, data
 // CATEGORY COST SCROLL (SLIDER) =======================================>
 
 
-function scrollBar(wrapper, maximum, colorTrack, colorActiveTrack) {
+function scrollBar(wrapper, maximum, colorTrack, colorActiveTrack, valClass, minScale, maxScale) {
   const scrollWrapper = document.querySelector(wrapper);
   const scrollTracks = Array.from(scrollWrapper.children); // scrollTracks.forEach(item => {
   //     item.insertAdjacentHTML('afterend', `<span class=" slider-main__actual">${item.value}</span>`);
   // });
 
-  let average1 = 10;
-  let average2 = 25;
+  let average1 = minScale;
+  let average2 = maxScale;
   let average1perc = average1 + '%';
   let average2perc = average2 + '%';
   scrollTracks[0].style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1perc}, ${colorActiveTrack} ${average1perc} ${average2perc}, ${colorTrack} ${average2perc} 100%)`;
   scrollTracks[0].addEventListener('input', e => {
     const elem = e.target;
-    const actual = document.querySelectorAll('.slider-num')[0];
+    const actual = document.querySelectorAll(valClass)[0];
     const max = maximum;
     average1 = Math.floor(elem.value * 100 / max);
     average1perc = average1 + '%';
@@ -13232,7 +13232,7 @@ function scrollBar(wrapper, maximum, colorTrack, colorActiveTrack) {
   });
   scrollTracks[1].addEventListener('input', e => {
     const elem = e.target;
-    const actual = document.querySelectorAll('.slider-num')[1];
+    const actual = document.querySelectorAll(valClass)[1];
     const max = maximum;
     average2 = Math.floor(elem.value * 100 / max);
     average1perc = average1 + '%';
@@ -13241,21 +13241,46 @@ function scrollBar(wrapper, maximum, colorTrack, colorActiveTrack) {
     scrollTracks[0].style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1 > average2 ? average2perc : average1perc}, ${colorActiveTrack} ${average1 > average2 ? average2perc : average1perc} ${average2 < average1 ? average1perc : average2perc}, ${colorTrack} ${average2 < average1 ? average1perc : average2perc} 100%)`;
   });
 } // END CATEGORY COST SCROLL (SLIDER) =======================================>
+// CATALOG ACCORDEON
+
+
+function accordeon(btnSelector, activeBtnSelector) {
+  const trig = document.querySelectorAll(btnSelector);
+  trig.forEach(item => {
+    item.addEventListener('click', e => {
+      const btnACtive = e.target.classList.contains(activeBtnSelector) || e.target.parentNode.parentNode.classList.contains(activeBtnSelector);
+
+      if (btnACtive) {
+        item.nextElementSibling.style.display = 'none';
+        item.parentNode.style.paddingBottom = '0px';
+        item.classList.remove(activeBtnSelector);
+      } else {
+        item.nextElementSibling.style.display = 'block';
+        item.parentNode.style.paddingBottom = '40px';
+        item.classList.add(activeBtnSelector);
+      }
+    });
+  });
+} // END CATALOG ACCORDEON
 
 
 window.addEventListener('DOMContentLoaded', () => {
   try {
     // image on main resize
     window.addEventListener('resize', () => {
-      const benefitsElement = document.querySelector('.main__benefits');
-      const screenWidth = window.screen.availWidth;
+      try {
+        const benefitsElement = document.querySelector('.main__benefits');
+        const screenWidth = window.screen.availWidth;
 
-      if (screenWidth < 576) {
-        benefitsElement.style.marginTop = `${screenWidth}px`;
-      } else if (screenWidth > 575 && screenWidth < 992) {
-        benefitsElement.style.marginTop = `50px`;
-      } else {
-        benefitsElement.style.marginTop = `200px`;
+        if (screenWidth < 576) {
+          benefitsElement.style.marginTop = `${screenWidth}px`;
+        } else if (screenWidth > 575 && screenWidth < 992) {
+          benefitsElement.style.marginTop = `50px`;
+        } else {
+          benefitsElement.style.marginTop = `200px`;
+        }
+      } catch (e) {
+        console.log(e);
       }
     }); // end image on main resize
     // PHONE SPREAD ON HEADER
@@ -13348,7 +13373,57 @@ window.addEventListener('DOMContentLoaded', () => {
     }); // END BESTSELLERS SLIDER
     // CATEGORY COST SCROLL(SLIDER) ========================================>
 
-    scrollBar('.slider-main__wrapper', 20000, '#e8aa31', '#141414'); // END CATEGORY COST SCROLL(SLIDER) ========================================>
+    scrollBar('.slider-1', 20000, '#e8aa31', '#141414', '.slider-cost__val', 10, 25); // END CATEGORY COST SCROLL(SLIDER) ========================================>
+    // CATEGORY LENGTH MAIN SCROLL(SLIDER) ========================================>
+
+    scrollBar('.slider-2', 20000, '#e8aa31', '#141414', '.slider-length__val', 10, 25); // END CATEGORY LENGTH MAIN SCROLL(SLIDER) ========================================>
+    // CATEGORY LENGTH BLADE SCROLL(SLIDER) ========================================>
+
+    scrollBar('.slider-3', 20000, '#e8aa31', '#141414', '.slider-blade__val', 10, 25); // END CATEGORY LENGTH BLADE SCROLL(SLIDER) ========================================>
+    // CATEGORY WIDTH BLADE SCROLL(SLIDER) ========================================>
+
+    scrollBar('.slider-4', 20000, '#e8aa31', '#141414', '.slider-width__val', 10, 25); // END CATEGORY WIDTH BLADE SCROLL(SLIDER) ========================================>
+    // ACCORDEON CATEGORY PAGE
+
+    try {
+      accordeon('.filter-category__accordeon', 'filter-category__accordeon_active');
+    } catch (e) {
+      console.log(e);
+    }
+
+    ; // END ACCORDEON CATEGORY PAGE
+    // CAROUSEL CATEGORY PAGE
+    // const categorySwiper = new Swiper('.products-category__carousel', {
+    //     loop: false,
+    //     slideClass: 'products-category__slide',
+    //     // slideActiveClass: 'slider-stock__slide_active',
+    //     wrapperClass: 'products-category__wrapper',
+    //     modules: [Pagination, Navigation],
+    //     slidesPerView: 1,
+    //     pagination: {
+    //         el: '.products-category__pagination',
+    //         clickable: true,
+    //         type: 'custom',
+    //         renderCustom: function(swiper, current, total) {
+    //             let res;
+    //             if(total > 4) {
+    //                 res = `${current} ${current+1} ${current+2} ... ${total}`
+    //             }else if(total > 4 && total - current < 4) {
+    //                 res = `${current} ${current+1} ${current+2} ${current+3} ${total}`
+    //             }else {
+    //                 res = `${current} ${current+1} ${current+2} ${current+3} ${total}`
+    //             }
+    //             return res;
+    //         },
+    //         bulletClass: 'pagination-products__bullet',
+    //         bulletActiveClass: 'pagination-products__bullet_active'
+    //     },
+    //     navigation: {
+    //         nextEl: '.products-category__next',
+    //         prevEl: '.products-category__prev',
+    //     }
+    // });
+    // END CAROUSEL CATEGORY PAGE
   } catch (e) {
     console.log(e);
   }

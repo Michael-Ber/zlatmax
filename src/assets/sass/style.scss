@@ -77,4 +77,15 @@ body {
     &_md {
         width: 316px;
     }
+    &_lg {
+        width: 325px;
+    }
+    &_white {
+        background-color: #ffffff;
+        color: $main-color;
+        &:hover {
+            background-color: darken($main-color, 10%);
+            color: #ffffff;
+        }
+    }
 }

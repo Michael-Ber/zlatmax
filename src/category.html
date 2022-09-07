@@ -242,8 +242,8 @@
             </div>
             <div class="category__content content-category">
                 <aside class="content-category__filter filter-category">
-                    <div class="filter-category__cost cost-filter">
-                        <div class="filter-category__accordeon filter-category__accordeon_lg">Фильтр товаров 
+                    <div class="filter-category__cost cost-filter category-padding">
+                        <div class="filter-category__accordeon filter-category__accordeon_lg filter-category__accordeon_active">Фильтр товаров 
                             <div class="filter-category__img">
                                 <img src="./assets/icons/main/arrow-bottom.svg" alt="arrow-bottom">
                             </div>
@@ -251,11 +251,11 @@
                         <div class="cost-filter__content">
                             <div class="cost-filter__title">Цена</div>
                             <div class="cost-filter__slider slider-cost slider-main">
-                                <div class="cost-filter__wrapper">
-                                    <span class="slider-cost__min slider-min slider-num">2000 руб.</span>
-                                    <span class="slider-cost__max slider-max slider-num">5000 руб.</span>
+                                <div class="cost-filter__wrapper slider-value__wrapper">
+                                    <span class="slider-cost__val slider-min slider-num">2000 руб.</span>
+                                    <span class="slider-cost__val slider-max slider-num">5000 руб.</span>
                                 </div>
-                                <div class="slider-main__wrapper">
+                                <div class="slider-main__wrapper slider-1">
                                     <input type="range" step="100" id="range-1" name="range-1" min="0" max="20000" value="2000" class="slider-main__input input-range">
                                     <input type="range" step="100" id="range-2" name="range-2" min="0" max="20000" value="5000" class="slider-main__input input-range">
                                 </div>
@@ -263,7 +263,7 @@
                         </div>
                     </div>
                     <div class="filter-category__production production-category">
-                        <div class="filter-category__accordeon">Производство 
+                        <div class="filter-category__accordeon filter-category__accordeon_active">Производство 
                             <div class="filter-category__img">
                                 <img src="./assets/icons/main/arrow-bottom.svg" alt="arrow-bottom">
                             </div>
@@ -350,7 +350,7 @@
                         </ul>
                     </div>
                     <div class="filter-category__steel steel-category">
-                        <div class="filter-category__accordeon">Сталь 
+                        <div class="filter-category__accordeon filter-category__accordeon_active">Сталь 
                             <div class="filter-category__img">
                                 <img src="./assets/icons/main/arrow-bottom.svg" alt="arrow-bottom">
                             </div>
@@ -443,7 +443,7 @@
                         </ul>
                     </div>
                     <div class="filter-category__handle handle-category">
-                        <div class="filter-category__accordeon">Рукоять
+                        <div class="filter-category__accordeon filter-category__accordeon_active">Рукоять
                             <div class="filter-category__img">
                                 <img src="./assets/icons/main/arrow-bottom.svg" alt="arrow-bottom">
                             </div>
@@ -518,7 +518,7 @@
                         </ul>
                     </div>
                     <div class="filter-category__guard guard-category">
-                        <div class="filter-category__accordeon">Гарда и тыльник
+                        <div class="filter-category__accordeon filter-category__accordeon_active">Гарда и тыльник
                             <div class="filter-category__img">
                                 <img src="./assets/icons/main/arrow-bottom.svg" alt="arrow-bottom">
                             </div>
@@ -593,7 +593,7 @@
                         </ul>
                     </div>
                     <div class="filter-category__gilding gilding-category">
-                        <div class="filter-category__accordeon">Золочение
+                        <div class="filter-category__accordeon filter-category__accordeon_active">Золочение
                             <div class="filter-category__img">
                                 <img src="./assets/icons/main/arrow-bottom.svg" alt="arrow-bottom">
                             </div>
@@ -613,53 +613,59 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="filter-category__length-main length-main-category">
-                        <div class="filter-category__accordeon">Общая длина, мм
+                    <div class="filter-category__length-main length-main-category category-padding">
+                        <div class="filter-category__accordeon filter-category__accordeon_active">Общая длина, мм
                             <div class="filter-category__img">
                                 <img src="./assets/icons/main/arrow-bottom.svg" alt="arrow-bottom">
                             </div>
                         </div>
                         <div class="length-main-category__slider slider-length slider-main">
-                            <span class="slider-length__min slider-min">2000 руб.</span>
-                            <span class="slider-length__max slider-max">5000 руб.</span>
-                            <div class="slider-main__wrapper">
-                                <input type="range" step="100" id="range-3" name="range-3" min="0" max="20000" value="0" class="slider-main__input">
-                                <input type="range" step="100" id="range-4" name="range-4" min="0" max="20000" value="5000" class="slider-main__input">
+                            <div class="slider-length__wrapper slider-value__wrapper">
+                                <span class="slider-length__val slider-min slider-num">2000 руб.</span>
+                                <span class="slider-length__val slider-max slider-num">5000 руб.</span>
+                            </div>
+                            <div class="slider-main__wrapper slider-2">
+                                <input type="range" step="100" id="range-3" name="range-3" min="0" max="20000" value="2000" class="slider-main__input input-range">
+                                <input type="range" step="100" id="range-4" name="range-4" min="0" max="20000" value="5000" class="slider-main__input input-range">
                             </div>
                         </div>
                     </div>
-                    <div class="filter-category__length-blade length-blade-category">
-                        <div class="filter-category__accordeon">Длина клинка, мм
+                    <div class="filter-category__length-blade length-blade-category category-padding">
+                        <div class="filter-category__accordeon filter-category__accordeon_active">Длина клинка, мм
                             <div class="filter-category__img">
                                 <img src="./assets/icons/main/arrow-bottom.svg" alt="arrow-bottom">
                             </div>
                         </div>
-                        <div class="length-blade-category__slider slider-length slider-main">
-                            <span class="slider-blade__min slider-min">2000 руб.</span>
-                            <span class="slider-blade__max slider-max">5000 руб.</span>
-                            <div class="slider-main__wrapper">
-                                <input type="range" step="100" id="range-5" name="range-5" min="0" max="20000" value="0" class="slider-main__input">
-                                <input type="range" step="100" id="range-6" name="range-6" min="0" max="20000" value="5000" class="slider-main__input">
+                        <div class="length-blade-category__slider slider-blade slider-main">
+                            <div class="slider-blade__wrapper slider-value__wrapper">
+                                <span class="slider-blade__val slider-min slider-num">2000 руб.</span>
+                                <span class="slider-blade__val slider-max slider-num">5000 руб.</span>
+                            </div>
+                            <div class="slider-main__wrapper slider-3">
+                                <input type="range" step="100" id="range-5" name="range-5" min="0" max="20000" value="2000" class="slider-main__input input-range">
+                                <input type="range" step="100" id="range-6" name="range-6" min="0" max="20000" value="5000" class="slider-main__input input-range">
                             </div>
                         </div>
                     </div>
-                    <div class="filter-category__width-blade width-blade-category">
-                        <div class="filter-category__accordeon">Ширина клинка, мм
+                    <div class="filter-category__width-blade width-blade-category category-padding">
+                        <div class="filter-category__accordeon filter-category__accordeon_active">Ширина клинка, мм
                             <div class="filter-category__img">
                                 <img src="./assets/icons/main/arrow-bottom.svg" alt="arrow-bottom">
                             </div>
                         </div>
                         <div class="width-blade-category__slider slider-width slider-main">
-                            <span class="slider-width__min slider-min">2000 руб.</span>
-                            <span class="slider-width__max slider-max">5000 руб.</span>
-                            <div class="slider-main__wrapper">
-                                <input type="range" step="100" id="range-7" name="range-7" min="0" max="20000" value="0" class="slider-main__input">
-                                <input type="range" step="100" id="range-8" name="range-8" min="0" max="20000" value="5000" class="slider-main__input">
+                            <div class="slider-width__wrapper slider-value__wrapper">
+                                <span class="slider-width__val slider-min slider-num">2000 руб.</span>
+                                <span class="slider-width__val slider-max slider-num">5000 руб.</span>
+                            </div>
+                            <div class="slider-main__wrapper slider-4">
+                                <input type="range" step="100" id="range-7" name="range-7" min="0" max="20000" value="2000" class="slider-main__input input-range">
+                                <input type="range" step="100" id="range-8" name="range-8" min="0" max="20000" value="5000" class="slider-main__input input-range">
                             </div>
                         </div>
                     </div>
                     <div class="filter-category__rating rating-category">
-                        <div class="filter-category__accordeon">Рейтинг
+                        <div class="filter-category__accordeon filter-category__accordeon_active">Рейтинг
                             <div class="filter-category__img">
                                 <img src="./assets/icons/main/arrow-bottom.svg" alt="arrow-bottom">
                             </div>
@@ -726,7 +732,7 @@
                 <div class="content-category__products products-category">
                     <div class="products-category__carousel">
                         <div class="products-category__wrapper">
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -783,7 +789,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -840,7 +846,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -897,7 +903,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -954,7 +960,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1011,7 +1017,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1068,7 +1074,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1125,7 +1131,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1182,7 +1188,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1239,7 +1245,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1296,7 +1302,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1353,7 +1359,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1410,7 +1416,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1467,7 +1473,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1524,7 +1530,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1581,7 +1587,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1638,7 +1644,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1695,7 +1701,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1752,7 +1758,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1809,7 +1815,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1866,7 +1872,7 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="products-category__slide card">
+                            <article class="products-category__card card">
                                 <a href="#" class="card__img-link">
                                     <img src="./assets/img/main/knife-item.jpg" alt="Card image">
                                 </a>
@@ -1924,9 +1930,36 @@
                                 </div>
                             </article>
                         </div>
-                        <button class="products-category__more">Показать больше</button>
-                        <div class="products-category__pagination"></div>
-                        <div class="products-category__navigation"></div>
+                        <div class="products-category__footer footer-products">
+                            <button class="products-category__more btn btn_lg btn_white">Показать больше</button>
+                            <div class="footer-products__subwrapper">
+                                <div class="products-category__navigation">
+                                    <button disabled class="products-category__prev">
+                                        <svg width="7" height="12" fill="#e8aa31" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M.254 1.746L1.08.92 6.16 6l-5.08 5.08-.825-.826L4.508 6 .254 1.746z" fill="e8aa31"/></svg>
+                                    </button>
+                                    <ul class="products-category__list">
+                                        <li class="products-category__item products-category__item_active">
+                                            <a href="#" class="products-category__link">1</a>
+                                        </li>
+                                        <li class="products-category__item">
+                                            <a href="#" class="products-category__link">2</a>
+                                        </li>
+                                        <li class="products-category__item">
+                                            <a href="#" class="products-category__link">3</a>
+                                        </li>
+                                        <li class="products-category__item">
+                                            <a href="#" class="products-category__link">...</a>
+                                        </li>
+                                        <li class="products-category__item">
+                                            <a href="#" class="products-category__link">15</a>
+                                        </li>
+                                    </ul>
+                                    <div class="products-category__next">
+                                        <svg width="7" height="12" fill="#e8aa31" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M.254 1.746L1.08.92 6.16 6l-5.08 5.08-.825-.826L4.508 6 .254 1.746z" fill="e8aa31"/></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
