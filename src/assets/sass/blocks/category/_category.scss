@@ -27,7 +27,6 @@
         padding: 10px 20px;
         border: 1px solid rgba($fifth-color, .3);
         border-radius: 5px;
-        
         font-size: 16px;
         line-height: 20px;
         appearance: none;
@@ -42,11 +41,6 @@
             margin-top: 20px;
         }
     }
-    &__option {
-
-    }
-
-    
 
     &__sort {
         position: relative;
@@ -170,36 +164,7 @@
         transform: rotate(180deg);
     }
 
-    &__production {
-        // margin-top: 80px;
-    }
 
-    &__steel {
-    }
-
-    &__handle {
-    }
-
-    &__guard {
-    }
-
-    &__gilding {
-    }
-
-    // &__length-main {
-    //     padding-bottom: 40px;
-    // }
-
-    // &__length-blade {
-    //     padding-bottom: 40px;
-    // }
-
-    // &__width-blade {
-    //     padding-bottom: 40px;
-    // }
-
-    &__rating {
-    }
 }
 
 .category-padding {
@@ -244,9 +209,6 @@
         position: relative;
         width: 100%;
         margin: 30px 0 0 0 ;
-    }
-
-    &__input {
     }
 
     &__actual {
@@ -318,25 +280,12 @@
 .slider-min {
     border-right: 1px solid $third-color;
 }
-.slider-max {
-}
 .slider-num {
     display: inline-flex;
     justify-content: center;
     align-items: center;
     width: calc(50% - 5px);
     height: 42px;
-}
-.production-category {
-
-    &__list {
-    }
-
-    &__item {
-    }
-
-    &__checkbox {
-    }
 }
 .category-item {
     label {
@@ -388,52 +337,10 @@
         margin-top: 20px;
     }
 }
-.category-input {
-}
-.steel-category {
-
-    &__list {
-    }
-
-    &__item {
-    }
-}
-.handle-category {
-
-    &__list {
-    }
-
-    &__item {
-    }
-}
-.guard-category {
-
-    &__list {
-    }
-
-    &__item {
-    }
-}
-.gilding-category {
-
-    &__list {
-    }
-
-    &__item {
-    }
-}
 .length-main-category {
 
     &__slider {
         margin-top: 30px;
-    }
-}
-.slider-length {
-
-    &__min {
-    }
-
-    &__max {
     }
 }
 .length-blade-category {
@@ -442,35 +349,13 @@
         margin-top: 30px;
     }
 }
-.slider-blade {
-
-    &__min {
-    }
-
-    &__max {
-    }
-}
 .width-blade-category {
 
     &__slider {
         margin-top: 30px;
     }
 }
-.slider-width {
-
-    &__min {
-    }
-
-    &__max {
-    }
-}
 .rating-category {
-
-    &__list {
-    }
-
-    &__item {
-    }
 
     label {
         span {
@@ -622,13 +507,5 @@
         @media(max-width: 991px) {
             margin-top: 30px;
         }
-    }
-}
-.footer-slide {
-
-    &__links {
-    }
-
-    &__link {
     }
 }
