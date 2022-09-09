@@ -89,4 +89,12 @@ body {
             color: #ffffff;
         }
     }
+    &_black {
+        background-color: $sec-color;
+        border: none;
+        border-radius: 3px;
+        &:hover {
+            background-color: lighten($sec-color, 10%);
+        }
+    }
 }

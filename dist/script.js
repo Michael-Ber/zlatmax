@@ -13119,22 +13119,16 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/assets/js/main.js":
-/*!*******************************!*\
-  !*** ./src/assets/js/main.js ***!
-  \*******************************/
-/*! no exports provided */
+/***/ "./src/assets/js/burger.js":
+/*!*********************************!*\
+  !*** ./src/assets/js/burger.js ***!
+  \*********************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
-/* harmony import */ var _phoneSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./phoneSpread */ "./src/assets/js/phoneSpread.js");
-
-
-
- //BURGER FUNCTION =============================================
-
+//BURGER FUNCTION =============================================
 function burger() {
   const burgerBtn = document.querySelector('.header__burger');
   const burgerMenu = document.querySelector('.header__burger-menu');
@@ -13161,130 +13155,87 @@ function burger() {
       btn.parentNode.parentNode.classList.remove('burger-menu-header__nextlists_active');
     });
   });
-} //END BURGER FUNCTION ==========================================
-//TABS FUNCTION =================================================
+}
 
+/* harmony default export */ __webpack_exports__["default"] = (burger); //END BURGER FUNCTION ==========================================
 
-function tabs(tabsSelector, tabsContentSelector, tabsActive, contentActive, dataAttr) {
-  const tabsWrapper = document.querySelector(tabsSelector);
-  const contentWrapper = document.querySelector(tabsContentSelector);
-  const overlay = document.querySelector('.overlay');
-  const body = document.querySelector('body');
+/***/ }),
 
-  function resetTabs() {
-    Array.from(tabsWrapper.children).forEach(item => {
-      item.classList.remove(tabsActive);
-    });
-    Array.from(contentWrapper.children).forEach(item => {
-      item.classList.remove(contentActive);
-    });
-  }
+/***/ "./src/assets/js/inputModif.js":
+/*!*************************************!*\
+  !*** ./src/assets/js/inputModif.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-  function activateOverlay() {
-    overlay.classList.add('overlay_active');
-    overlay.style.height = `${body.scrollHeight}px`;
-  }
-
-  tabsWrapper.addEventListener('click', e => {
-    const target = e.target.hasAttribute(dataAttr) ? e.target : e.target.parentNode;
-    const targetAttr = target.getAttribute(dataAttr);
-    resetTabs();
-    activateOverlay();
-    target.classList.add(tabsActive);
-    Array.from(contentWrapper.children).forEach(item => {
-      if (item.getAttribute(dataAttr) === targetAttr) {
-        item.classList.add(contentActive);
-      }
-    });
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// INPUT MODIFICATION ON CARD PAGE
+function inputModify(inputSelector, minusSelector, plusSelector) {
+  const input = document.querySelector(inputSelector),
+        minus = document.querySelector(minusSelector),
+        plus = document.querySelector(plusSelector);
+  console.log(input, minus, plus);
+  plus.addEventListener('click', () => {
+    input.value++;
   });
-  window.addEventListener('click', e => {
-    console.log(e.target);
+  minus.addEventListener('click', () => {
+    input.value--;
 
-    if (e.target.classList.contains('overlay_active')) {
-      e.target.classList.remove('overlay_active');
-      resetTabs();
+    if (input.value <= 1) {
+      input.value = 1;
     }
   });
-} //END TABS FUNCTION ==============================================
-// CATEGORY COST SCROLL (SLIDER) =======================================>
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (inputModify); // END INPUT MODIFICATION ON CARD PAGE
+
+/***/ }),
+
+/***/ "./src/assets/js/main.js":
+/*!*******************************!*\
+  !*** ./src/assets/js/main.js ***!
+  \*******************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
+/* harmony import */ var _phoneSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./phoneSpread */ "./src/assets/js/phoneSpread.js");
+/* harmony import */ var _burger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./burger */ "./src/assets/js/burger.js");
+/* harmony import */ var _tab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tab */ "./src/assets/js/tab.js");
+/* harmony import */ var _sliderBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sliderBar */ "./src/assets/js/sliderBar.js");
+/* harmony import */ var _inputModif__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./inputModif */ "./src/assets/js/inputModif.js");
 
 
-function scrollBar(wrapper, maximum, colorTrack, colorActiveTrack, valClass, minScale, maxScale) {
-  const scrollWrapper = document.querySelector(wrapper);
-  const scrollTracks = Array.from(scrollWrapper.children); // scrollTracks.forEach(item => {
-  //     item.insertAdjacentHTML('afterend', `<span class=" slider-main__actual">${item.value}</span>`);
-  // });
-
-  let average1 = minScale;
-  let average2 = maxScale;
-  let average1perc = average1 + '%';
-  let average2perc = average2 + '%';
-  scrollTracks[0].style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1perc}, ${colorActiveTrack} ${average1perc} ${average2perc}, ${colorTrack} ${average2perc} 100%)`;
-  scrollTracks[0].addEventListener('input', e => {
-    const elem = e.target;
-    const actual = document.querySelectorAll(valClass)[0];
-    const max = maximum;
-    average1 = Math.floor(elem.value * 100 / max);
-    average1perc = average1 + '%';
-    average2perc = average2 + '%';
-    actual.innerHTML = elem.value + ' руб.';
-    elem.style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1 > average2 ? average2perc : average1perc}, ${colorActiveTrack} ${average1 > average2 ? average2perc : average1perc} ${average2 < average1 ? average1perc : average2perc}, ${colorTrack} ${average2 < average1 ? average1perc : average2perc} 100%)`;
-  });
-  scrollTracks[1].addEventListener('input', e => {
-    const elem = e.target;
-    const actual = document.querySelectorAll(valClass)[1];
-    const max = maximum;
-    average2 = Math.floor(elem.value * 100 / max);
-    average1perc = average1 + '%';
-    average2perc = average2 + '%';
-    actual.innerHTML = elem.value + ' руб.';
-    scrollTracks[0].style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1 > average2 ? average2perc : average1perc}, ${colorActiveTrack} ${average1 > average2 ? average2perc : average1perc} ${average2 < average1 ? average1perc : average2perc}, ${colorTrack} ${average2 < average1 ? average1perc : average2perc} 100%)`;
-  });
-} // END CATEGORY COST SCROLL (SLIDER) =======================================>
-// CATALOG ACCORDEON
 
 
-function accordeon(btnSelector, activeBtnSelector) {
-  const trig = document.querySelectorAll(btnSelector);
-  trig.forEach(item => {
-    item.addEventListener('click', e => {
-      const btnACtive = e.target.classList.contains(activeBtnSelector) || e.target.parentNode.parentNode.classList.contains(activeBtnSelector);
 
-      if (btnACtive) {
-        item.nextElementSibling.style.display = 'none';
-        item.parentNode.style.paddingBottom = '0px';
-        item.classList.remove(activeBtnSelector);
-      } else {
-        item.nextElementSibling.style.display = 'block';
-        item.parentNode.style.paddingBottom = '40px';
-        item.classList.add(activeBtnSelector);
-      }
-    });
-  });
-} // END CATALOG ACCORDEON
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  try {
-    // image on main resize
-    window.addEventListener('resize', () => {
-      try {
-        const benefitsElement = document.querySelector('.main__benefits');
-        const screenWidth = window.screen.availWidth;
+  // image on main resize
+  window.addEventListener('resize', () => {
+    try {
+      const benefitsElement = document.querySelector('.main__benefits');
+      const screenWidth = window.screen.availWidth;
 
-        if (screenWidth < 576) {
-          benefitsElement.style.marginTop = `${screenWidth}px`;
-        } else if (screenWidth > 575 && screenWidth < 992) {
-          benefitsElement.style.marginTop = `50px`;
-        } else {
-          benefitsElement.style.marginTop = `200px`;
-        }
-      } catch (e) {
-        console.log(e);
+      if (screenWidth < 576) {
+        benefitsElement.style.marginTop = `${screenWidth}px`;
+      } else if (screenWidth > 575 && screenWidth < 992) {
+        benefitsElement.style.marginTop = `50px`;
+      } else {
+        benefitsElement.style.marginTop = `200px`;
       }
-    }); // end image on main resize
-    // PHONE SPREAD ON HEADER
+    } catch (e) {
+      console.log(e);
+    }
+  }); // end image on main resize
+  // PHONE SPREAD ON HEADER
 
+  try {
     Object(_phoneSpread__WEBPACK_IMPORTED_MODULE_1__["telSpread"])({
       parentSelector: '.header__recall',
       btnSelector: '.recall-header__arrow',
@@ -13296,137 +13247,154 @@ window.addEventListener('DOMContentLoaded', () => {
         listActiveClass: 'recall-header__list_active',
         arrowActiveClass: 'recall-header__arrow_active'
       }
-    }); // END PHONE SPREAD ON HEADER
-    //BURGER MENU
-
-    burger(); //END BURGER MENU
-    //MAIN TABS
-
-    try {
-      tabs('.btns-tab-main__list', '.contents-tab-main__wrapper', 'btns-tab-main__item_active', 'contents-tab-main__content_active', 'data-tab');
-    } catch (e) {
-      console.log(e);
-    } //END MAIN TABS
-    // BESTSELLERS SLIDER
-
-
-    const bestsellersSwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.bestsellers__slider', {
-      loop: true,
-      slideClass: 'slider-bestsellers__slide',
-      slideActiveClass: 'slider-bestsellers__slide_active',
-      wrapperClass: 'slider-bestsellers__wrapper',
-      modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"]],
-      pagination: {
-        el: '.slider-bestsellers__pagination',
-        clickable: true,
-        renderBullet: function (index, className) {
-          return '<div class="pagination-slider-common__bullet"><span class="pagination-slider-common__line"></span></div>';
-        },
-        bulletClass: 'pagination-slider-common__bullet',
-        bulletActiveClass: 'pagination-slider-common__bullet_active'
-      }
     });
-    const noveltySwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.novelty__slider', {
-      loop: true,
-      slideClass: 'slider-novelty__slide',
-      slideActiveClass: 'slider-novelty__slide_active',
-      wrapperClass: 'slider-novelty__wrapper',
-      modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"]],
-      slidesPerView: 1,
-      // slidesPerGroup: 3,
-      pagination: {
-        el: '.slider-novelty__pagination',
-        clickable: true,
-        renderBullet: function (index, className) {
-          return '<div class="pagination-slider-novelty__bullet"><span class="pagination-slider-novelty__line"></span></div>';
-        },
-        bulletClass: 'pagination-slider-novelty__bullet',
-        bulletActiveClass: 'pagination-slider-novelty__bullet_active'
-      },
-      breakpoints: {
-        992: {
-          slidesPerView: 1
-        },
-        1200: {
-          slidesPerView: 2
-        },
-        1610: {
-          slidesPerView: 3
-        }
-      }
-    });
-    const stockSwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.stock__slider', {
-      loop: true,
-      slideClass: 'slider-stock__slide',
-      slideActiveClass: 'slider-stock__slide_active',
-      wrapperClass: 'slider-stock__wrapper',
-      modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"]],
-      pagination: {
-        el: '.slider-stock__pagination',
-        clickable: true,
-        renderBullet: function (index, className) {
-          return '<div class="pagination-slider-common__bullet"><span class="pagination-slider-common__line"></span></div>';
-        },
-        bulletClass: 'pagination-slider-common__bullet',
-        bulletActiveClass: 'pagination-slider-common__bullet_active'
-      }
-    }); // END BESTSELLERS SLIDER
-    // CATEGORY COST SCROLL(SLIDER) ========================================>
-
-    scrollBar('.slider-1', 20000, '#e8aa31', '#141414', '.slider-cost__val', 10, 25); // END CATEGORY COST SCROLL(SLIDER) ========================================>
-    // CATEGORY LENGTH MAIN SCROLL(SLIDER) ========================================>
-
-    scrollBar('.slider-2', 20000, '#e8aa31', '#141414', '.slider-length__val', 10, 25); // END CATEGORY LENGTH MAIN SCROLL(SLIDER) ========================================>
-    // CATEGORY LENGTH BLADE SCROLL(SLIDER) ========================================>
-
-    scrollBar('.slider-3', 20000, '#e8aa31', '#141414', '.slider-blade__val', 10, 25); // END CATEGORY LENGTH BLADE SCROLL(SLIDER) ========================================>
-    // CATEGORY WIDTH BLADE SCROLL(SLIDER) ========================================>
-
-    scrollBar('.slider-4', 20000, '#e8aa31', '#141414', '.slider-width__val', 10, 25); // END CATEGORY WIDTH BLADE SCROLL(SLIDER) ========================================>
-    // ACCORDEON CATEGORY PAGE
-
-    try {
-      accordeon('.filter-category__accordeon', 'filter-category__accordeon_active');
-    } catch (e) {
-      console.log(e);
-    }
-
-    ; // END ACCORDEON CATEGORY PAGE
-    // CAROUSEL CATEGORY PAGE
-    // const categorySwiper = new Swiper('.products-category__carousel', {
-    //     loop: false,
-    //     slideClass: 'products-category__slide',
-    //     // slideActiveClass: 'slider-stock__slide_active',
-    //     wrapperClass: 'products-category__wrapper',
-    //     modules: [Pagination, Navigation],
-    //     slidesPerView: 1,
-    //     pagination: {
-    //         el: '.products-category__pagination',
-    //         clickable: true,
-    //         type: 'custom',
-    //         renderCustom: function(swiper, current, total) {
-    //             let res;
-    //             if(total > 4) {
-    //                 res = `${current} ${current+1} ${current+2} ... ${total}`
-    //             }else if(total > 4 && total - current < 4) {
-    //                 res = `${current} ${current+1} ${current+2} ${current+3} ${total}`
-    //             }else {
-    //                 res = `${current} ${current+1} ${current+2} ${current+3} ${total}`
-    //             }
-    //             return res;
-    //         },
-    //         bulletClass: 'pagination-products__bullet',
-    //         bulletActiveClass: 'pagination-products__bullet_active'
-    //     },
-    //     navigation: {
-    //         nextEl: '.products-category__next',
-    //         prevEl: '.products-category__prev',
-    //     }
-    // });
-    // END CAROUSEL CATEGORY PAGE
   } catch (e) {
     console.log(e);
   }
+
+  ; // END PHONE SPREAD ON HEADER
+  //BURGER MENU
+
+  try {
+    Object(_burger__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  } catch (e) {
+    console.log(e);
+  }
+
+  ; //END BURGER MENU
+  //MAIN TABS
+
+  try {
+    Object(_tab__WEBPACK_IMPORTED_MODULE_3__["default"])('.btns-tab-main__list', '.contents-tab-main__wrapper', 'btns-tab-main__item_active', 'contents-tab-main__content_active', 'data-tab');
+  } catch (e) {
+    console.log(e);
+  } //END MAIN TABS
+  // CARD TABS
+
+
+  try {
+    Object(_tab__WEBPACK_IMPORTED_MODULE_3__["default"])('.card-item__tab-btns', '.card-item__tab-contents', 'card-item__tab-btn_active', 'card-item__tab-content_active', 'data-tab', false);
+  } catch (e) {
+    console.log(e);
+  } // END CARD TABS
+  // BESTSELLERS SLIDER
+
+
+  const bestsellersSwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.bestsellers__slider', {
+    loop: true,
+    slideClass: 'slider-bestsellers__slide',
+    slideActiveClass: 'slider-bestsellers__slide_active',
+    wrapperClass: 'slider-bestsellers__wrapper',
+    modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"]],
+    pagination: {
+      el: '.slider-bestsellers__pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+        return '<div class="pagination-slider-common__bullet"><span class="pagination-slider-common__line"></span></div>';
+      },
+      bulletClass: 'pagination-slider-common__bullet',
+      bulletActiveClass: 'pagination-slider-common__bullet_active'
+    }
+  });
+  const noveltySwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.novelty__slider', {
+    loop: true,
+    slideClass: 'slider-novelty__slide',
+    slideActiveClass: 'slider-novelty__slide_active',
+    wrapperClass: 'slider-novelty__wrapper',
+    modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"]],
+    slidesPerView: 1,
+    // slidesPerGroup: 3,
+    pagination: {
+      el: '.slider-novelty__pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+        return '<div class="pagination-slider-novelty__bullet"><span class="pagination-slider-novelty__line"></span></div>';
+      },
+      bulletClass: 'pagination-slider-novelty__bullet',
+      bulletActiveClass: 'pagination-slider-novelty__bullet_active'
+    },
+    breakpoints: {
+      992: {
+        slidesPerView: 1
+      },
+      1200: {
+        slidesPerView: 2
+      },
+      1610: {
+        slidesPerView: 3
+      }
+    }
+  });
+  const stockSwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.stock__slider', {
+    loop: true,
+    slideClass: 'slider-stock__slide',
+    slideActiveClass: 'slider-stock__slide_active',
+    wrapperClass: 'slider-stock__wrapper',
+    modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"]],
+    pagination: {
+      el: '.slider-stock__pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+        return '<div class="pagination-slider-common__bullet"><span class="pagination-slider-common__line"></span></div>';
+      },
+      bulletClass: 'pagination-slider-common__bullet',
+      bulletActiveClass: 'pagination-slider-common__bullet_active'
+    }
+  }); // END BESTSELLERS SLIDER
+  // CATEGORY COST SCROLL(SLIDER) ========================================>
+
+  try {
+    Object(_sliderBar__WEBPACK_IMPORTED_MODULE_4__["default"])('.slider-1', 20000, '#e8aa31', '#141414', '.slider-cost__val', 10, 25);
+  } catch (e) {
+    console.log(e);
+  }
+
+  ; // END CATEGORY COST SCROLL(SLIDER) ========================================>
+  // CATEGORY LENGTH MAIN SCROLL(SLIDER) ========================================>
+
+  try {
+    Object(_sliderBar__WEBPACK_IMPORTED_MODULE_4__["default"])('.slider-2', 20000, '#e8aa31', '#141414', '.slider-length__val', 10, 25);
+  } catch (e) {
+    console.log(e);
+  }
+
+  ; // END CATEGORY LENGTH MAIN SCROLL(SLIDER) ========================================>
+  // CATEGORY LENGTH BLADE SCROLL(SLIDER) ========================================>
+
+  try {
+    Object(_sliderBar__WEBPACK_IMPORTED_MODULE_4__["default"])('.slider-3', 20000, '#e8aa31', '#141414', '.slider-blade__val', 10, 25);
+  } catch (e) {
+    console.log(e);
+  }
+
+  ; // END CATEGORY LENGTH BLADE SCROLL(SLIDER) ========================================>
+  // CATEGORY WIDTH BLADE SCROLL(SLIDER) ========================================>
+
+  try {
+    Object(_sliderBar__WEBPACK_IMPORTED_MODULE_4__["default"])('.slider-4', 20000, '#e8aa31', '#141414', '.slider-width__val', 10, 25);
+  } catch (e) {
+    console.log(e);
+  }
+
+  ; // END CATEGORY WIDTH BLADE SCROLL(SLIDER) ========================================>
+  // ACCORDEON CATEGORY PAGE
+
+  try {
+    accordeon('.filter-category__accordeon', 'filter-category__accordeon_active');
+  } catch (e) {
+    console.log(e);
+  }
+
+  ; // END ACCORDEON CATEGORY PAGE
+  // INPUT MODIFICATION
+
+  try {
+    Object(_inputModif__WEBPACK_IMPORTED_MODULE_5__["default"])('.order-content-card-item__input', '.order-content-card-item__input-minus', '.order-content-card-item__input-plus');
+  } catch (e) {
+    console.log(e);
+  }
+
+  ; // END INPUT MODIFICATION
 });
 
 /***/ }),
@@ -13481,6 +13449,115 @@ const telSpread = function () {
 };
 
 
+
+/***/ }),
+
+/***/ "./src/assets/js/sliderBar.js":
+/*!************************************!*\
+  !*** ./src/assets/js/sliderBar.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// CATEGORY COST SCROLL (SLIDER) =======================================>
+function scrollBar(wrapper, maximum, colorTrack, colorActiveTrack, valClass, minScale, maxScale) {
+  const scrollWrapper = document.querySelector(wrapper);
+  const scrollTracks = Array.from(scrollWrapper.children); // scrollTracks.forEach(item => {
+  //     item.insertAdjacentHTML('afterend', `<span class=" slider-main__actual">${item.value}</span>`);
+  // });
+
+  let average1 = minScale;
+  let average2 = maxScale;
+  let average1perc = average1 + '%';
+  let average2perc = average2 + '%';
+  scrollTracks[0].style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1perc}, ${colorActiveTrack} ${average1perc} ${average2perc}, ${colorTrack} ${average2perc} 100%)`;
+  scrollTracks[0].addEventListener('input', e => {
+    const elem = e.target;
+    const actual = document.querySelectorAll(valClass)[0];
+    const max = maximum;
+    average1 = Math.floor(elem.value * 100 / max);
+    average1perc = average1 + '%';
+    average2perc = average2 + '%';
+    actual.innerHTML = elem.value + ' руб.';
+    elem.style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1 > average2 ? average2perc : average1perc}, ${colorActiveTrack} ${average1 > average2 ? average2perc : average1perc} ${average2 < average1 ? average1perc : average2perc}, ${colorTrack} ${average2 < average1 ? average1perc : average2perc} 100%)`;
+  });
+  scrollTracks[1].addEventListener('input', e => {
+    const elem = e.target;
+    const actual = document.querySelectorAll(valClass)[1];
+    const max = maximum;
+    average2 = Math.floor(elem.value * 100 / max);
+    average1perc = average1 + '%';
+    average2perc = average2 + '%';
+    actual.innerHTML = elem.value + ' руб.';
+    scrollTracks[0].style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1 > average2 ? average2perc : average1perc}, ${colorActiveTrack} ${average1 > average2 ? average2perc : average1perc} ${average2 < average1 ? average1perc : average2perc}, ${colorTrack} ${average2 < average1 ? average1perc : average2perc} 100%)`;
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (scrollBar); // END CATEGORY COST SCROLL (SLIDER) =======================================>
+
+/***/ }),
+
+/***/ "./src/assets/js/tab.js":
+/*!******************************!*\
+  !*** ./src/assets/js/tab.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//TABS FUNCTION =================================================
+function tabs(tabsSelector, tabsContentSelector, tabsActive, contentActive, dataAttr) {
+  let withOverlay = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : true;
+  const tabsWrapper = document.querySelector(tabsSelector);
+  const contentWrapper = document.querySelector(tabsContentSelector);
+  const body = document.querySelector('body');
+  const overlay = document.querySelector('.overlay');
+
+  function resetTabs() {
+    Array.from(tabsWrapper.children).forEach(item => {
+      item.classList.remove(tabsActive);
+    });
+    Array.from(contentWrapper.children).forEach(item => {
+      item.classList.remove(contentActive);
+    });
+  }
+
+  function activateOverlay() {
+    overlay.classList.add('overlay_active');
+    overlay.style.height = `${body.scrollHeight}px`;
+  }
+
+  tabsWrapper.addEventListener('click', e => {
+    const target = e.target.hasAttribute(dataAttr) ? e.target : e.target.parentNode;
+    const targetAttr = target.getAttribute(dataAttr);
+    resetTabs();
+
+    if (withOverlay) {
+      activateOverlay();
+    }
+
+    target.classList.add(tabsActive);
+    Array.from(contentWrapper.children).forEach(item => {
+      if (item.getAttribute(dataAttr) === targetAttr) {
+        item.classList.add(contentActive);
+      }
+    });
+  });
+
+  if (withOverlay) {
+    window.addEventListener('click', e => {
+      if (e.target.classList.contains('overlay_active')) {
+        e.target.classList.remove('overlay_active');
+        resetTabs();
+      }
+    });
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (tabs); //END TABS FUNCTION ==============================================
 
 /***/ })
 

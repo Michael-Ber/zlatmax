@@ -484,16 +484,30 @@
                     <div class="content-card-item__order order-content-card-item">
                         <div class="order-content-card-item__up">
                             <p class="order-content-card-item__cost">3 865 &#8381;</p>
-                            <p class="order-content-card-item__score">+ 449 баллов за покупку <span>?</span></p>
+                            <div class="order-content-card-item__score">+ 449 баллов за покупку 
+                                <span class="order-content-card-item__question-symbol">?</span>
+                                <p class="order-content-card-item__question-text">
+                                    Вам будут начислены баллы в размере 5% 
+                                    от стоимости покупки. Их можно будет использовать 
+                                    на оплату последующих заказов.
+                                </p>
+                            </div>
                         </div>
                         <div class="order-content-card-item__bottom">
                             <div class="order-content-card-item__count">
                                 <button class="order-content-card-item__input-modify order-content-card-item__input-minus">-</button>
-                                <input value=1 type="number" class="order-content-card-item__input">
+                                <input min="1" value=1 type="number" class="order-content-card-item__input">
                                 <button class="order-content-card-item__input-modify order-content-card-item__input-plus">+</button>
                             </div>
-                            <div class="order-content-card-item__btn-cort btn">В корзину</div>
-                            <div class="order-content-card-item__btn-oneclick btn">Купить в 1 клик</div>
+                            <div class="order-content-card-item__btn-cort btn btn_sm">
+                                В корзину
+                                <svg width="22" height="24" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7.13008 7.76882H29.7121C30.3649 7.76882 30.8427 8.38411 30.681 9.01655L28.7801 16.4506C28.4405 17.7785 27.2442 18.7074 25.8736 18.7074H9.02537M0 1.49957H4.65214C5.63535 1.49957 6.47274 2.21422 6.62728 3.18521L9.6467 22.1562C9.80125 23.1272 10.6386 23.8418 11.6218 23.8418H28.203" stroke="#fff" stroke-width="2.5"/>
+                                    <path d="M15.7689 30.2656C15.7689 31.5678 14.7584 32.5758 13.5695 32.5758C12.3807 32.5758 11.3701 31.5678 11.3701 30.2656C11.3701 28.9634 12.3807 27.9554 13.5695 27.9554C14.7584 27.9554 15.7689 28.9634 15.7689 30.2656Z" stroke="#fff" stroke-width="2.5"/>
+                                    <path d="M28.746 30.2656C28.746 31.5678 27.7354 32.5758 26.5466 32.5758C25.3577 32.5758 24.3472 31.5678 24.3472 30.2656C24.3472 28.9634 25.3577 27.9554 26.5466 27.9554C27.7354 27.9554 28.746 28.9634 28.746 30.2656Z" stroke="#fff" stroke-width="2.5"/>
+                                </svg>
+                            </div>
+                            <div class="order-content-card-item__btn-oneclick btn btn_sm btn_black">Купить в 1 клик</div>
                         </div>
                     </div>
                 </div>
@@ -506,177 +520,232 @@
                     <button data-tab="delivery" class="card-item__tab-btn">Доставка</button>
                 </div>
                 <div class="card-item__tab-contents">
-                    <div data-tab="descr" class="card-item__tab-content tab-content-card-item">
-                        <p class="tab-content-card-item__text">
-                            Легкий удобный нож с клинком, имеющим пологие вогнутые линзовидные спуски на две трети ширины клинка, образующие тонкое, 
-                            прекрасно режущее лезвие толщиной около 0,6 мм в районе подводов. 
-                        </p>
-                        <p class="tab-content-card-item__text">
-                            Обух клинка со спинкой рукояти имеет одну плавную дугообразную линию. На пяте перед рукоятью есть подпальцевый вырез для точных работ. 
-                        </p>
-                        <p class="tab-content-card-item__text">
-                            Необходимо проявлять некоторую осторожность при работе с большими боковыми нагрузками на лезвие ножа, ввиду небольшой толщины клинка 
-                            в рабочей части. 
-                        </p>
-                        <p class="tab-content-card-item__text">
-                            Монтаж рукояти накладной плашечный. На навершии рукояти, функцию которого выполняет выступающий из под плашек хвостовик, 
-                            имеется отверстие под темляк. Этот нож удобный помощник при работе с продуктами и охоте на боровую и водоплавающую дичь.
-                        </p>
+                    <div data-tab="descr" class="card-item__tab-content tab-content-card-item card-item__tab-content_active">
+                        <div class="tab-content-card-item__wrapper-block">
+                            <p class="tab-content-card-item__text">
+                                Легкий удобный нож с клинком, имеющим пологие вогнутые линзовидные спуски на две трети ширины клинка, образующие тонкое, 
+                                прекрасно режущее лезвие толщиной около 0,6 мм в районе подводов. 
+                            </p>
+                            <br>
+                            <p class="tab-content-card-item__text">
+                                Обух клинка со спинкой рукояти имеет одну плавную дугообразную линию. На пяте перед рукоятью есть подпальцевый вырез для точных работ. 
+                            </p>
+                            <br>
+                            <p class="tab-content-card-item__text">
+                                Необходимо проявлять некоторую осторожность при работе с большими боковыми нагрузками на лезвие ножа, ввиду небольшой толщины клинка 
+                                в рабочей части. 
+                            </p>
+                            <br>
+                            <p class="tab-content-card-item__text">
+                                Монтаж рукояти накладной плашечный. На навершии рукояти, функцию которого выполняет выступающий из под плашек хвостовик, 
+                                имеется отверстие под темляк. Этот нож удобный помощник при работе с продуктами и охоте на боровую и водоплавающую дичь.
+                            </p>
+                        </div>
                     </div>
                     <div data-tab="characteristics" class="card-item__tab-content tab-content-card-item">
-                        <div class="tab-content-card-item__block block-tab-content-card-item">
-                            <h3 class="block-tab-content-card-item__title">Технические характеристики</h3>
-                            <ul class="block-tab-content-card-item__list">
-                                <li class="block-tab-content-card-item__elem">
-                                    <span>Общая длина, мм:</span>
-                                    <span>227</span>
-                                </li>
-                                <li class="block-tab-content-card-item__elem">
-                                    <span>Длина клинка, мм:</span>
-                                    <span>112</span>
-                                </li>
-                                <li class="block-tab-content-card-item__elem">
-                                    <span>Ширина клинка, мм:</span>
-                                    <span>24</span>
-                                </li>
-                                <li class="block-tab-content-card-item__elem">
-                                    <span>Толщина обуха, мм:</span>
-                                    <span>2.9</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="tab-content-card-item__block">
-                            <h3 class="block-tab-content-card-item__title">Используемые материалы</h3>
-                            <ul class="block-tab-content-card-item__list">
-                                <li class="block-tab-content-card-item__elem">
-                                    <span>Сталь:</span>
-                                    <span>95Х18</span>
-                                </li>
-                                <li class="block-tab-content-card-item__elem">
-                                    <span>Рукоять:</span>
-                                    <span>Накладки карельская береза</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="tab-content-card-item__block">
-                            <h3 class="block-tab-content-card-item__title">Производство</h3>
-                            <ul class="block-tab-content-card-item__list">
-                                <li class="block-tab-content-card-item__elem">
-                                    <span>Производство:</span>
-                                    <span>АиР</span>
-                                </li>
-                            </ul>
+                        <div class="tab-content-card-item__wrapper-flex">
+                            <div class="tab-content-card-item__block tab-content-card-item__block_sm block-tab-content-card-item">
+                                <h3 class="block-tab-content-card-item__title">Технические характеристики</h3>
+                                <div class="block-tab-content-card-item__wrapper-main">
+                                    <ul class="block-tab-content-card-item__wrapper-left">
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>Общая длина, мм:</span>
+                                        </li>
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>Длина клинка, мм:</span>
+                                        </li>
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>Ширина клинка, мм:</span>
+                                        </li>
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>Толщина обуха, мм:</span>
+                                        </li>
+                                    </ul>
+                                    <ul class="block-tab-content-card-item__wrapper-right">
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>227</span>
+                                        </li>
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>112</span>
+                                        </li>
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>24</span>
+                                        </li>
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>2.9</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tab-content-card-item__block tab-content-card-item__block_lg block-tab-content-card-item">
+                                <h3 class="block-tab-content-card-item__title">Используемые материалы</h3>
+                                <div class="block-tab-content-card-item__wrapper-main">
+                                    <ul class="block-tab-content-card-item__wrapper-left">
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>Сталь:</span>
+                                        </li>
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>Рукоять:</span>
+                                        </li>
+                                    </ul>
+                                    <ul class="block-tab-content-card-item__wrapper-right">
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>95Х18</span>
+                                        </li>
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>Накладки карельская береза</span>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                            <div class="tab-content-card-item__block tab-content-card-item__block_lg block-tab-content-card-item">
+                                <h3 class="block-tab-content-card-item__title">Производство</h3>
+                                <div class="block-tab-content-card-item__wrapper-main">
+                                    <ul class="block-tab-content-card-item__wrapper-left">
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>Производство:</span>
+                                        </li>
+                                    </ul>
+                                    <ul class="block-tab-content-card-item__wrapper-right">
+                                        <li class="block-tab-content-card-item__elem">
+                                            <span>АиР</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div data-tab="comments" class="card-item__tab-content tab-content-card-item">
-                        <div class="tab-content-card-item__no-comments no-comments-tab-content-card-item">
-                            <span class="no-comments-tab-content-card-item__text">У данного товара нет отзывов. Станьте первым, кто оставил отзыв об этом товаре!</span>
-                            <button class="no-comments-tab-content-card-item__btn">Написать отзыв</button>
-                        </div>
-                        <div class="tab-content-card-item__comments comments-tab-content-card-item">
-                            <ul class="comments-tab-content-card-item__list">
-                                <li class="comments-tab-content-card-item__elem">
-                                    <div class="comments-tab-content-card-item__left">
-                                        <div class="comments-tab-content-card-item__img">
-                                            <img src="./assets/img/card/comments-1.jpg" alt="photo">
-                                        </div>
-                                    </div>
-                                    <div class="comments-tab-content-card-item__right">
-                                        <h3 class="comments-tab-content-card-item__name">Никита Панков</h3>
-                                        <div class="comments-tab-content-card-item__stars">
-                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
-                                            </svg>
-                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
-                                            </svg>
-                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
-                                            </svg>
-                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
-                                            </svg>
-                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
-                                            </svg>
-                                        </div>
-                                        <p class="comments-tab-content-card-item__text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor luctus et consectetur augue. 
-                                            Dolor egestas nunc pellentesque hac fringilla. Enim hac scelerisque eu tellus feugiat vel. 
-                                            Ut ac nec eleifend fermentum dictum ullamcorper phasellus at sed.
-                                        </p>
-                                        <div class="comments-tab-content-card-item__favorite">
-                                            <button class="comments-tab-content-card-item__answer">Ответить</button>
-                                            <div class="comments-tab-content-card-item__favorites">
-                                                <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M20.1004 0C17.7169 0 15.4856 1.07339 14 2.87184C12.5144 1.07333 10.2832 0 7.89957 0C3.54375 0 0 3.52462 0 7.85705C0 11.2495 2.03385 15.1734 6.04492 19.5198C9.13175 22.8646 12.4897 25.4544 13.4454 26.1685L13.9998 26.5828L14.5543 26.1686C15.5099 25.4545 18.868 22.8647 21.9549 19.52C25.9661 15.1736 28 11.2496 28 7.85705C28 3.52462 24.4562 0 20.1004 0ZM20.5948 18.2782C18.0558 21.0293 15.3242 23.2533 13.9998 24.2783C12.6755 23.2533 9.944 21.0293 7.40498 18.2781C3.76837 14.3375 1.84615 10.734 1.84615 7.85705C1.84615 4.53717 4.56172 1.83622 7.89957 1.83622C10.0961 1.83622 12.1243 3.02694 13.1927 4.94377L14 6.3923L14.8073 4.94377C15.8756 3.027 17.9038 1.83622 20.1004 1.83622C23.4383 1.83622 26.1538 4.53711 26.1538 7.85705C26.1538 10.7341 24.2316 14.3377 20.5948 18.2782Z" fill="black"/>
-                                                </svg>
+                        <div class="tab-content-card-item__wrapper-block">
+                            <div class="tab-content-card-item__no-comments no-comments-tab-content-card-item">
+                                <span class="no-comments-tab-content-card-item__text">У данного товара нет отзывов. Станьте первым, кто оставил отзыв об этом товаре!</span>
+                                <button class="no-comments-tab-content-card-item__btn btn btn_sm btn_black">Написать отзыв</button>
+                            </div>
+                            <div class="tab-content-card-item__comments comments-tab-content-card-item">
+                                <ul class="comments-tab-content-card-item__list">
+                                    <li class="comments-tab-content-card-item__elem">
+                                        <div class="comments-tab-content-card-item__left">
+                                            <div class="comments-tab-content-card-item__img">
+                                                <img src="./assets/img/card/comments-1.jpg" alt="photo">
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="comments-tab-content-card-item__elem">
-                                    <div class="comments-tab-content-card-item__left">
-                                        <div class="comments-tab-content-card-item__img">
-                                            <img src="./assets/img/card/comments-1.jpg" alt="photo">
-                                        </div>
-                                    </div>
-                                    <div class="comments-tab-content-card-item__right">
-                                        <h3 class="comments-tab-content-card-item__name">Саша Осийчук</h3>
-                                        <div class="comments-tab-content-card-item__stars">
-                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
-                                            </svg>
-                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
-                                            </svg>
-                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
-                                            </svg>
-                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
-                                            </svg>
-                                            <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
-                                            </svg>
-                                        </div>
-                                        <p class="comments-tab-content-card-item__text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor luctus et consectetur augue. 
-                                            Dolor egestas nunc pellentesque hac fringilla. Enim hac scelerisque eu tellus feugiat vel. 
-                                            Ut ac nec eleifend fermentum dictum ullamcorper phasellus at sed.
-                                        </p>
-                                        <div class="comments-tab-content-card-item__favorite">
-                                            <button class="comments-tab-content-card-item__answer">Ответить</button>
-                                            <div class="comments-tab-content-card-item__favorites">
-                                                <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M20.1004 0C17.7169 0 15.4856 1.07339 14 2.87184C12.5144 1.07333 10.2832 0 7.89957 0C3.54375 0 0 3.52462 0 7.85705C0 11.2495 2.03385 15.1734 6.04492 19.5198C9.13175 22.8646 12.4897 25.4544 13.4454 26.1685L13.9998 26.5828L14.5543 26.1686C15.5099 25.4545 18.868 22.8647 21.9549 19.52C25.9661 15.1736 28 11.2496 28 7.85705C28 3.52462 24.4562 0 20.1004 0ZM20.5948 18.2782C18.0558 21.0293 15.3242 23.2533 13.9998 24.2783C12.6755 23.2533 9.944 21.0293 7.40498 18.2781C3.76837 14.3375 1.84615 10.734 1.84615 7.85705C1.84615 4.53717 4.56172 1.83622 7.89957 1.83622C10.0961 1.83622 12.1243 3.02694 13.1927 4.94377L14 6.3923L14.8073 4.94377C15.8756 3.027 17.9038 1.83622 20.1004 1.83622C23.4383 1.83622 26.1538 4.53711 26.1538 7.85705C26.1538 10.7341 24.2316 14.3377 20.5948 18.2782Z" fill="black"/>
+                                        <div class="comments-tab-content-card-item__right">
+                                            <div class="comments-tab-content-card-item__subwrapper">
+                                                <h3 class="comments-tab-content-card-item__name">Никита Панков</h3>
+                                                <span class="comments-tab-content-card-item__date">29.06.2019</span>
+                                            </div>
+                                            
+                                            <div class="comments-tab-content-card-item__stars">
+                                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
+                                                </svg>
+                                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
+                                                </svg>
+                                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
+                                                </svg>
+                                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
+                                                </svg>
+                                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
                                                 </svg>
                                             </div>
+                                            <p class="comments-tab-content-card-item__text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor luctus et consectetur augue. 
+                                                Dolor egestas nunc pellentesque hac fringilla. Enim hac scelerisque eu tellus feugiat vel. 
+                                                Ut ac nec eleifend fermentum dictum ullamcorper phasellus at sed.
+                                            </p>
+                                            <div class="comments-tab-content-card-item__favorite">
+                                                <button class="comments-tab-content-card-item__answer">Ответить</button>
+                                                <div class="comments-tab-content-card-item__favorites footer-slide__link">
+                                                    <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M20.1004 0C17.7169 0 15.4856 1.07339 14 2.87184C12.5144 1.07333 10.2832 0 7.89957 0C3.54375 0 0 3.52462 0 7.85705C0 11.2495 2.03385 15.1734 6.04492 19.5198C9.13175 22.8646 12.4897 25.4544 13.4454 26.1685L13.9998 26.5828L14.5543 26.1686C15.5099 25.4545 18.868 22.8647 21.9549 19.52C25.9661 15.1736 28 11.2496 28 7.85705C28 3.52462 24.4562 0 20.1004 0ZM20.5948 18.2782C18.0558 21.0293 15.3242 23.2533 13.9998 24.2783C12.6755 23.2533 9.944 21.0293 7.40498 18.2781C3.76837 14.3375 1.84615 10.734 1.84615 7.85705C1.84615 4.53717 4.56172 1.83622 7.89957 1.83622C10.0961 1.83622 12.1243 3.02694 13.1927 4.94377L14 6.3923L14.8073 4.94377C15.8756 3.027 17.9038 1.83622 20.1004 1.83622C23.4383 1.83622 26.1538 4.53711 26.1538 7.85705C26.1538 10.7341 24.2316 14.3377 20.5948 18.2782Z" fill="black"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </li>
+                                    <li class="comments-tab-content-card-item__elem">
+                                        <div class="comments-tab-content-card-item__left">
+                                            <div class="comments-tab-content-card-item__img">
+                                                <img src="./assets/img/card/comments-1.jpg" alt="photo">
+                                            </div>
+                                        </div>
+                                        <div class="comments-tab-content-card-item__right">
+                                            <div class="comments-tab-content-card-item__subwrapper">
+                                                <h3 class="comments-tab-content-card-item__name">Саша Осийчук</h3>
+                                                <span class="comments-tab-content-card-item__date">29.06.2019</span>
+                                            </div>
+                                            <div class="comments-tab-content-card-item__stars">
+                                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
+                                                </svg>
+                                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
+                                                </svg>
+                                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
+                                                </svg>
+                                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
+                                                </svg>
+                                                <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M11 0L13.4697 7.60081H21.4616L14.996 12.2984L17.4656 19.8992L11 15.2016L4.53436 19.8992L7.00402 12.2984L0.538379 7.60081H8.53035L11 0Z" fill="#E8AA31"/>
+                                                </svg>
+                                            </div>
+                                            <p class="comments-tab-content-card-item__text">
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tortor luctus et consectetur augue. 
+                                                Dolor egestas nunc pellentesque hac fringilla. Enim hac scelerisque eu tellus feugiat vel. 
+                                                Ut ac nec eleifend fermentum dictum ullamcorper phasellus at sed.
+                                            </p>
+                                            <div class="comments-tab-content-card-item__favorite">
+                                                <button class="comments-tab-content-card-item__answer">Ответить</button>
+                                                <div class="comments-tab-content-card-item__favorites footer-slide__link">
+                                                    <svg width="28" height="27" viewBox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M20.1004 0C17.7169 0 15.4856 1.07339 14 2.87184C12.5144 1.07333 10.2832 0 7.89957 0C3.54375 0 0 3.52462 0 7.85705C0 11.2495 2.03385 15.1734 6.04492 19.5198C9.13175 22.8646 12.4897 25.4544 13.4454 26.1685L13.9998 26.5828L14.5543 26.1686C15.5099 25.4545 18.868 22.8647 21.9549 19.52C25.9661 15.1736 28 11.2496 28 7.85705C28 3.52462 24.4562 0 20.1004 0ZM20.5948 18.2782C18.0558 21.0293 15.3242 23.2533 13.9998 24.2783C12.6755 23.2533 9.944 21.0293 7.40498 18.2781C3.76837 14.3375 1.84615 10.734 1.84615 7.85705C1.84615 4.53717 4.56172 1.83622 7.89957 1.83622C10.0961 1.83622 12.1243 3.02694 13.1927 4.94377L14 6.3923L14.8073 4.94377C15.8756 3.027 17.9038 1.83622 20.1004 1.83622C23.4383 1.83622 26.1538 4.53711 26.1538 7.85705C26.1538 10.7341 24.2316 14.3377 20.5948 18.2782Z" fill="black"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div data-tab="delivery" class="card-item__tab-content tab-content-card-item">
-                        <div class="tab-content-card-item__row">
-                            <span>Ваша страна</span>
-                            <select name="country" id="country" class="tab-content-card-item__select">
-                                <option value="ua" class="tab-content-card-item__option">Украина</option>
-                                <option value="uk" class="tab-content-card-item__option">Великобритания</option>
-                                <option value="us" class="tab-content-card-item__option">США</option>
-                                <option value="pol" class="tab-content-card-item__option">Польша</option>
-                            </select>
-                        </div>
-                        <div class="tab-content-card-item__row">
-                            <span>Ваш город</span>
-                            <select name="country" id="country" class="tab-content-card-item__select">
-                                <option disabled value="0" class="tab-content-card-item__option"></option>
-                                <option value="ua" class="tab-content-card-item__option">Украина</option>
-                                <option value="uk" class="tab-content-card-item__option">Великобритания</option>
-                                <option value="us" class="tab-content-card-item__option">США</option>
-                                <option value="pol" class="tab-content-card-item__option">Польша</option>
-                            </select>
+                        <div class="tab-content-card-item__wrapper-block">
+                            <div class="tab-content-card-item__row">
+                                <span>Ваша страна</span>
+                                <select name="country" id="country" class="tab-content-card-item__select selects-content-card-item__select">
+                                    <option value="ua" class="tab-content-card-item__option">Украина</option>
+                                    <option value="uk" class="tab-content-card-item__option">Великобритания</option>
+                                    <option value="us" class="tab-content-card-item__option">США</option>
+                                    <option value="pol" class="tab-content-card-item__option">Польша</option>
+                                </select>
+                                <div class="selects-content-card-item__arrow">
+                                    <svg width="12" height="17" viewBox="0 0 7 12" fill="#e8aa31" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.254211 1.74583L1.07917 0.920871L6.15832 6.00002L1.07917 11.0792L0.254211 10.2542L4.5084 6.00002L0.254211 1.74583Z" fill="e8aa31"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="tab-content-card-item__row">
+                                <span>Ваш город</span>
+                                <select name="country" id="country" class="tab-content-card-item__select selects-content-card-item__select">
+                                    <option value="0" class="tab-content-card-item__option"></option>
+                                    <option value="ua" class="tab-content-card-item__option">Киев</option>
+                                    <option value="uk" class="tab-content-card-item__option">Лондон</option>
+                                    <option value="us" class="tab-content-card-item__option">Вашингтон</option>
+                                    <option value="pol" class="tab-content-card-item__option">Варшава</option>
+                                </select>
+                                <div class="selects-content-card-item__arrow">
+                                    <svg width="12" height="17" viewBox="0 0 7 12" fill="#e8aa31" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.254211 1.74583L1.07917 0.920871L6.15832 6.00002L1.07917 11.0792L0.254211 10.2542L4.5084 6.00002L0.254211 1.74583Z" fill="e8aa31"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

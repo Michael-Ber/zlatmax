@@ -2,157 +2,14 @@
 
 import Swiper, {Pagination, Navigation} from 'swiper';
 import {telSpread} from './phoneSpread';
-
-//BURGER FUNCTION =============================================
-function burger() {
-    const burgerBtn = document.querySelector('.header__burger');
-    const burgerMenu = document.querySelector('.header__burger-menu');
-    const closeMenu = document.querySelectorAll('.close-nav');
-    const nextMenuBtns = document.querySelectorAll('.next');
-    const backBtn = document.querySelectorAll('.back-nav');
-
-    closeMenu.forEach(closeBtn => {
-        closeBtn.addEventListener('click', () => {
-            burgerMenu.classList.remove('header__burger-menu_active');
-        });
-    });
-
-    burgerBtn.addEventListener('click', () => {
-        burgerMenu.classList.toggle('header__burger-menu_active');
-    });
-
-    nextMenuBtns.forEach(nextBtn => {
-        nextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            const btn = e.target;
-            btn.nextElementSibling.classList.add('burger-menu-header__nextlists_active');
-        });
-    });
-
-    backBtn.forEach(btn => {
-        btn.addEventListener('click', () => {
-            btn.parentNode.parentNode.classList.remove('burger-menu-header__nextlists_active');
-        });
-    })
-}
-
-//END BURGER FUNCTION ==========================================
-
-//TABS FUNCTION =================================================
-
-function tabs(tabsSelector, tabsContentSelector, tabsActive, contentActive, dataAttr) {
-    const tabsWrapper = document.querySelector(tabsSelector);
-    const contentWrapper = document.querySelector(tabsContentSelector);
-    const overlay = document.querySelector('.overlay');
-    const body = document.querySelector('body');
-    
-    function resetTabs() {
-        Array.from(tabsWrapper.children).forEach(item => {
-            item.classList.remove(tabsActive);
-        })
-        Array.from(contentWrapper.children).forEach(item => {
-            item.classList.remove(contentActive);
-        });
-    }
-    function activateOverlay() {
-        overlay.classList.add('overlay_active');
-        overlay.style.height = `${body.scrollHeight}px`; 
-    }
-    tabsWrapper.addEventListener('click', (e) => {
-        const target = e.target.hasAttribute(dataAttr) ? e.target : e.target.parentNode;
-        const targetAttr = target.getAttribute(dataAttr);
-        resetTabs();
-        activateOverlay();
-        target.classList.add(tabsActive);
-        Array.from(contentWrapper.children).forEach(item => {
-            if(item.getAttribute(dataAttr) === targetAttr) {
-                item.classList.add(contentActive);
-            }
-        });
-    });
-    window.addEventListener('click', (e) => {
-        console.log(e.target);
-        if(e.target.classList.contains('overlay_active')) {
-            e.target.classList.remove('overlay_active');
-            resetTabs();
-        }
-    });
-}
-
-//END TABS FUNCTION ==============================================
-
-// CATEGORY COST SCROLL (SLIDER) =======================================>
-
-function scrollBar(wrapper, maximum, colorTrack, colorActiveTrack, valClass, minScale, maxScale) {
-    const scrollWrapper = document.querySelector(wrapper);
-    const scrollTracks = Array.from(scrollWrapper.children);
-    // scrollTracks.forEach(item => {
-    //     item.insertAdjacentHTML('afterend', `<span class=" slider-main__actual">${item.value}</span>`);
-    // });
-    let average1 = minScale;
-    let average2 = maxScale;
-    let average1perc = average1 + '%';
-    let average2perc = average2 + '%';
-
-    scrollTracks[0].style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1perc}, ${colorActiveTrack} ${average1perc} ${average2perc}, ${colorTrack} ${average2perc} 100%)`;
-
-    scrollTracks[0].addEventListener('input', (e) => {
-        const elem = e.target;
-        const actual = document.querySelectorAll(valClass)[0];
-        const max = maximum;
-        average1 = Math.floor(elem.value * 100 / max);
-        average1perc = average1 + '%';
-        average2perc = average2 + '%';
-        actual.innerHTML = elem.value + ' руб.';
-
-        elem.style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1 > average2 ? average2perc : average1perc}, ${colorActiveTrack} ${average1 > average2 ? average2perc : average1perc} ${average2 < average1 ? average1perc : average2perc}, ${colorTrack} ${average2 < average1 ? average1perc : average2perc} 100%)`;
-    })
-
-    scrollTracks[1].addEventListener('input', (e) => {
-        const elem = e.target;
-        const actual = document.querySelectorAll(valClass)[1];
-        const max = maximum;
-        average2 = Math.floor(elem.value * 100 / max);
-        average1perc = average1 + '%';
-        average2perc = average2 + '%';
-        actual.innerHTML = elem.value + ' руб.';
-
-        scrollTracks[0].style.background = `linear-gradient(90deg, ${colorTrack} 0% ${average1 > average2 ? average2perc : average1perc}, ${colorActiveTrack} ${average1 > average2 ? average2perc : average1perc} ${average2 < average1 ? average1perc: average2perc}, ${colorTrack} ${average2 < average1 ? average1perc : average2perc} 100%)`;
-    })
-
-}
-
-// END CATEGORY COST SCROLL (SLIDER) =======================================>
-
-// CATALOG ACCORDEON
-
-function accordeon(btnSelector,activeBtnSelector) {
-    const trig = document.querySelectorAll(btnSelector);
-
-    trig.forEach(item => {
-        item.addEventListener('click', (e) => {
-            const btnACtive = e.target.classList.contains(activeBtnSelector) || e.target.parentNode.parentNode.classList.contains(activeBtnSelector);
-            if(btnACtive) {
-                item.nextElementSibling.style.display = 'none';
-                item.parentNode.style.paddingBottom = '0px';
-                item.classList.remove(activeBtnSelector);
-            }else {
-                item.nextElementSibling.style.display = 'block';
-                item.parentNode.style.paddingBottom = '40px';
-                item.classList.add(activeBtnSelector);
-            }
-        });
-    })
-
-}
-
-
-// END CATALOG ACCORDEON
-
+import burger from './burger';
+import tabs from './tab';
+import scrollBar from './sliderBar';
+import inputModify from './inputModif';
 
 window.addEventListener('DOMContentLoaded', () => {
 
-   try {
+   
      // image on main resize
     
         window.addEventListener('resize', () => {
@@ -173,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
    
     // PHONE SPREAD ON HEADER
 
-    telSpread({
+    try{telSpread({
         parentSelector: '.header__recall',
         btnSelector: '.recall-header__arrow',
         telsArray: ['8-123-4567-890', '8-890-1234-567', '8-456-1237-890'],
@@ -184,12 +41,12 @@ window.addEventListener('DOMContentLoaded', () => {
             listActiveClass: 'recall-header__list_active', 
             arrowActiveClass: 'recall-header__arrow_active'
         }
-    });
+    })}catch(e){console.log(e)};
 
     // END PHONE SPREAD ON HEADER
 
     //BURGER MENU
-    burger();
+    try{burger()}catch(e){console.log(e)};
     //END BURGER MENU
 
     //MAIN TABS
@@ -201,6 +58,16 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     
     //END MAIN TABS
+
+    // CARD TABS
+
+    try{
+        tabs('.card-item__tab-btns', '.card-item__tab-contents', 'card-item__tab-btn_active', 'card-item__tab-content_active', 'data-tab', false);
+    }catch(e) {
+        console.log(e);
+    }
+
+    // END CARD TABS
 
     // BESTSELLERS SLIDER
 
@@ -271,25 +138,25 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // CATEGORY COST SCROLL(SLIDER) ========================================>
     
-    scrollBar('.slider-1', 20000,'#e8aa31', '#141414', '.slider-cost__val', 10, 25);
+    try{scrollBar('.slider-1', 20000,'#e8aa31', '#141414', '.slider-cost__val', 10, 25)}catch(e){console.log(e)};
 
     // END CATEGORY COST SCROLL(SLIDER) ========================================>
 
     // CATEGORY LENGTH MAIN SCROLL(SLIDER) ========================================>
     
-    scrollBar('.slider-2', 20000,'#e8aa31', '#141414', '.slider-length__val', 10, 25);
+    try{scrollBar('.slider-2', 20000,'#e8aa31', '#141414', '.slider-length__val', 10, 25)}catch(e){console.log(e)};
 
     // END CATEGORY LENGTH MAIN SCROLL(SLIDER) ========================================>
 
     // CATEGORY LENGTH BLADE SCROLL(SLIDER) ========================================>
     
-    scrollBar('.slider-3', 20000,'#e8aa31', '#141414', '.slider-blade__val', 10, 25);
+    try{scrollBar('.slider-3', 20000,'#e8aa31', '#141414', '.slider-blade__val', 10, 25)}catch(e){console.log(e)};
 
     // END CATEGORY LENGTH BLADE SCROLL(SLIDER) ========================================>
 
     // CATEGORY WIDTH BLADE SCROLL(SLIDER) ========================================>
     
-    scrollBar('.slider-4', 20000,'#e8aa31', '#141414', '.slider-width__val', 10, 25);
+    try{scrollBar('.slider-4', 20000,'#e8aa31', '#141414', '.slider-width__val', 10, 25)}catch(e){console.log(e)};
 
     // END CATEGORY WIDTH BLADE SCROLL(SLIDER) ========================================>
 
@@ -299,44 +166,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // END ACCORDEON CATEGORY PAGE
 
-    // CAROUSEL CATEGORY PAGE
+    // INPUT MODIFICATION
 
-    // const categorySwiper = new Swiper('.products-category__carousel', {
-    //     loop: false,
-    //     slideClass: 'products-category__slide',
-    //     // slideActiveClass: 'slider-stock__slide_active',
-    //     wrapperClass: 'products-category__wrapper',
-    //     modules: [Pagination, Navigation],
-    //     slidesPerView: 1,
-    //     pagination: {
-    //         el: '.products-category__pagination',
-    //         clickable: true,
-    //         type: 'custom',
-    //         renderCustom: function(swiper, current, total) {
-    //             let res;
-    //             if(total > 4) {
-    //                 res = `${current} ${current+1} ${current+2} ... ${total}`
-    //             }else if(total > 4 && total - current < 4) {
-    //                 res = `${current} ${current+1} ${current+2} ${current+3} ${total}`
-    //             }else {
-    //                 res = `${current} ${current+1} ${current+2} ${current+3} ${total}`
-    //             }
-    //             return res;
-    //         },
-    //         bulletClass: 'pagination-products__bullet',
-    //         bulletActiveClass: 'pagination-products__bullet_active'
-    //     },
-    //     navigation: {
-    //         nextEl: '.products-category__next',
-    //         prevEl: '.products-category__prev',
-    //     }
-    // });
+    try{inputModify('.order-content-card-item__input', '.order-content-card-item__input-minus', '.order-content-card-item__input-plus')}catch(e){console.log(e)} ;
 
-    // END CAROUSEL CATEGORY PAGE
-
-   }catch(e) {
-    console.log(e);
-   }
+    // END INPUT MODIFICATION
 
 
 });
