@@ -13340,6 +13340,45 @@ window.addEventListener('DOMContentLoaded', () => {
       bulletClass: 'pagination-slider-common__bullet',
       bulletActiveClass: 'pagination-slider-common__bullet_active'
     }
+  });
+  const similarSwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.carousel-common', {
+    loop: false,
+    slideClass: 'slide-common-card-page',
+    slideActiveClass: 'slide-common-card-page_active',
+    wrapperClass: 'wrapper-common',
+    modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"]],
+    // slidesPerView: 1,
+    spaceBetween: 30,
+    autoplay: {
+      delay: 122000,
+      disableOnInteraction: false
+    },
+    pagination: {
+      el: '.pagination-slider-common',
+      clickable: true,
+      renderBullet: function (index, className) {
+        return '<div class="pagination-slider-common__bullet"><span class="pagination-slider-common__line"></span></div>';
+      },
+      bulletClass: 'pagination-slider-common__bullet',
+      bulletActiveClass: 'pagination-slider-common__bullet_active'
+    },
+    breakpointsBase: 'window',
+    // centerInsufficientSlides: true,
+    // centeredSlides: true,
+    breakpoints: {
+      768: {
+        slidesPerView: 2
+      },
+      // 992: {
+      //     slidesPerView: 2,
+      // },
+      1200: {
+        slidesPerView: 3
+      },
+      1609: {
+        slidesPerView: 4
+      }
+    }
   }); // END BESTSELLERS SLIDER
   // CATEGORY COST SCROLL(SLIDER) ========================================>
 
@@ -13532,6 +13571,11 @@ function tabs(tabsSelector, tabsContentSelector, tabsActive, contentActive, data
 
   tabsWrapper.addEventListener('click', e => {
     const target = e.target.hasAttribute(dataAttr) ? e.target : e.target.parentNode;
+
+    if (!target.hasAttribute(dataAttr)) {
+      return;
+    }
+
     const targetAttr = target.getAttribute(dataAttr);
     resetTabs();
 

@@ -157,19 +157,20 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: column;
-    flex: 0 0 335px;
+    box-sizing: border-box;
+    width: 335px;
     height: 540px;
     padding: 30px 20px;
     box-shadow: 0 4px 20px 0 rgba(#000000, .1);
     background-color: $card-bg;
     @media(max-width: 1609px) {
-        flex: 0 0 315px;
+        width: 315px;
     }
     @media(max-width: 991px) {
-        flex: 0 0 290px;
+        width: 290px;
     }
     @media(max-width: 575px) {
-        flex: 0 0 260px;
+        width: 260px;
     }
 
     &__img-link {

@@ -1,6 +1,6 @@
 'use strict';
 
-import Swiper, {Pagination, Navigation} from 'swiper';
+import Swiper, {Pagination, Navigation, Autoplay} from 'swiper';
 import {telSpread} from './phoneSpread';
 import burger from './burger';
 import tabs from './tab';
@@ -133,6 +133,45 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    const similarSwiper = new Swiper('.carousel-common', {
+        loop: false,
+        slideClass: 'slide-common-card-page',
+        slideActiveClass: 'slide-common-card-page_active',
+        wrapperClass: 'wrapper-common',
+        modules: [Pagination, Autoplay],
+        // slidesPerView: 1,
+        spaceBetween: 30,
+        autoplay: {
+            delay: 122000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.pagination-slider-common',
+            clickable: true,
+            renderBullet: function(index, className) {
+                return '<div class="pagination-slider-common__bullet"><span class="pagination-slider-common__line"></span></div>'
+            },
+            bulletClass: 'pagination-slider-common__bullet',
+            bulletActiveClass: 'pagination-slider-common__bullet_active'
+        },
+        breakpointsBase: 'window',
+        // centerInsufficientSlides: true,
+        // centeredSlides: true,
+        breakpoints: {
+            768: {
+                slidesPerView: 2,
+            },
+            // 992: {
+            //     slidesPerView: 2,
+            // },
+            1200: {
+                slidesPerView: 3,
+            },
+            1609: {
+                slidesPerView: 4,
+            },
+        }
+    });
 
     // END BESTSELLERS SLIDER
 

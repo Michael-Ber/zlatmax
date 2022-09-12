@@ -20,6 +20,9 @@ function tabs(tabsSelector, tabsContentSelector, tabsActive, contentActive, data
     }
     tabsWrapper.addEventListener('click', (e) => {
         const target = e.target.hasAttribute(dataAttr) ? e.target : e.target.parentNode;
+        if(!target.hasAttribute(dataAttr)) {
+            return;
+        }
         const targetAttr = target.getAttribute(dataAttr);
         resetTabs();
         if(withOverlay) {
