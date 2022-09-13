@@ -41,7 +41,6 @@
         position: relative;
         margin: 0 0 0 auto;
         z-index: 1000;
-        overflow: hidden;
         @media(max-width: 1609px) {
             width: 730px;
         };
@@ -78,14 +77,6 @@
 .slider-novelty {
 
     &__wrapper {
-        display: flex;
-        column-gap: 30px;
-        @media(max-width: 767px) {
-            column-gap: 20px;
-        }
-        @media(max-width: 575px) {
-           column-gap: unset; 
-        };
     }
 
     &__slide {
@@ -116,14 +107,5 @@
 
     &__card {
         background-color: #fff;
-        @media(max-width: 1609px) {
-            flex: 0 0 300px;
-        }
-        @media(max-width: 767px) {
-            flex: 0 0 240px;
-        };
-        @media(max-width: 575px) {
-            flex: 0 0 260px;
-        };
     }
 }

@@ -833,6 +833,9 @@
             margin: 0 -17px;
             padding: 30px 15px;
         }
+        @media(max-width: 575px) {
+            margin: 0 auto;
+        }
     }
 
     &__wrapper {
@@ -883,6 +886,9 @@
         @media(max-width: 1609px) {
             margin: 0 -17px;
             padding: 30px 15px;
+        }
+        @media(max-width: 575px) {
+            margin: 0 auto;
         }
     }
 

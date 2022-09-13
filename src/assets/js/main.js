@@ -69,14 +69,71 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // END CARD TABS
 
+    // MAIN CAROUSEL
+
+    const mainSwiper = new Swiper('.main__carousel', {
+        loop: false,
+        slideClass: 'carousel-main__slide',
+        slideActiveClass: 'carousel-main__slide_active',
+        wrapperClass: 'carousel-main__wrapper',
+        modules: [Pagination, Autoplay],
+        // slidesPerView: 1,
+        spaceBetween: 30,
+        autoplay: {
+            delay: 122000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.carousel-main__pagination',
+            clickable: true,
+            renderBullet: function(index, className) {
+                return `<div class="pagination-slider-common__bullet"><span class="pagination-slider-common__line"></span></div>`
+            },
+            bulletClass: 'pagination-slider-common__bullet',
+            bulletActiveClass: 'pagination-slider-common__bullet_active'
+        },
+        on: {
+            init: function(swiper) {
+                const activeFraction = document.querySelector('.carousel-main__current'),
+                      totalFraction = document.querySelector('.carousel-main__total');
+                activeFraction.innerHTML = swiper.slides.length < 10 ?`0${swiper.activeIndex+1}` : swiper.activeIndex;
+                totalFraction.innerHTML = swiper.slides.length;
+                console.log(typeof(swiper.activeIndex));
+            },
+            slideChange: function(swiper) {
+                const activeFraction = document.querySelector('.carousel-main__current');
+                activeFraction.innerHTML = swiper.slides.length < 10 ?`0${swiper.activeIndex+1}`: swiper.activeIndex;
+                
+            }
+        }
+        // breakpointsBase: 'window',
+        // breakpoints: {
+        //     320: {
+        //         slidesPerView: 1,
+        //     },
+        //     768: {
+        //         slidesPerView: 2,
+        //     },
+        //     1200: {
+        //         slidesPerView: 3,
+        //     },
+        //     1609: {
+        //         slidesPerView: 4,
+        //     },
+        // }
+    });
+
+    // END MAIN CAROUSEL
+
     // BESTSELLERS SLIDER
 
     const bestsellersSwiper = new Swiper('.bestsellers__slider', {
-        loop: true,
-        slideClass: 'slider-bestsellers__slide',
-        slideActiveClass: 'slider-bestsellers__slide_active',
-        wrapperClass: 'slider-bestsellers__wrapper',
-        modules: [Pagination],
+        spaceBetween: 30,
+        slidesPerView: 4,
+        modules: [Pagination, Autoplay],
+        // autoplay: {
+        //     delay: 2000
+        // },
         pagination: {
             el: '.slider-bestsellers__pagination',
             clickable: true,
@@ -85,16 +142,33 @@ window.addEventListener('DOMContentLoaded', () => {
             },
             bulletClass: 'pagination-slider-common__bullet',
             bulletActiveClass: 'pagination-slider-common__bullet_active'
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1200: {
+                slidesPerView: 3,
+            },
+            1609: {
+                slidesPerView: 4,
+            },
         }
     });
+
+    // END BESTSELLERS SLIDER
+
+    // NOVELTY SLIDER
     const noveltySwiper = new Swiper('.novelty__slider', {
-        loop: true,
-        slideClass: 'slider-novelty__slide',
-        slideActiveClass: 'slider-novelty__slide_active',
-        wrapperClass: 'slider-novelty__wrapper',
-        modules: [Pagination],
+        modules: [Pagination, Autoplay],
+        spaceBetween: 30,
         slidesPerView: 1,
-        // slidesPerGroup: 3,
+        // autoplay: {
+        //     delay: 2000
+        // },
         pagination: {
             el: '.slider-novelty__pagination',
             clickable: true,
@@ -116,12 +190,17 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+    // END NOVELTY SLIDER
+
+    // STOCK SLIDER
     const stockSwiper = new Swiper('.stock__slider', {
-        loop: true,
-        slideClass: 'slider-stock__slide',
-        slideActiveClass: 'slider-stock__slide_active',
-        wrapperClass: 'slider-stock__wrapper',
-        modules: [Pagination],
+        modules: [Pagination, Autoplay],
+        slidesPerView: 4,
+        spaceBetween: 30,
+        // autoplay: {
+        //     delay: 2000
+        // },
         pagination: {
             el: '.slider-stock__pagination',
             clickable: true,
@@ -130,23 +209,35 @@ window.addEventListener('DOMContentLoaded', () => {
             },
             bulletClass: 'pagination-slider-common__bullet',
             bulletActiveClass: 'pagination-slider-common__bullet_active'
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1200: {
+                slidesPerView: 3,
+            },
+            1610: {
+                slidesPerView: 4,
+            }
         }
     });
 
-    const similarSwiper = new Swiper('.carousel-common', {
-        loop: false,
-        slideClass: 'slide-common-card-page',
-        slideActiveClass: 'slide-common-card-page_active',
-        wrapperClass: 'wrapper-common',
+    // END STOCK SLIDER
+
+    // FLASHLIGHTS SLIDER
+    const flashlightsSwiper = new Swiper('.flashlights__slider', {
         modules: [Pagination, Autoplay],
-        // slidesPerView: 1,
+        slidesPerView: 4,
         spaceBetween: 30,
-        autoplay: {
-            delay: 122000,
-            disableOnInteraction: false,
-        },
+        // autoplay: {
+        //     delay: 2000
+        // },
         pagination: {
-            el: '.pagination-slider-common',
+            el: '.slider-flashlights__pagination',
             clickable: true,
             renderBullet: function(index, className) {
                 return '<div class="pagination-slider-common__bullet"><span class="pagination-slider-common__line"></span></div>'
@@ -154,7 +245,43 @@ window.addEventListener('DOMContentLoaded', () => {
             bulletClass: 'pagination-slider-common__bullet',
             bulletActiveClass: 'pagination-slider-common__bullet_active'
         },
-        breakpointsBase: 'window',
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1200: {
+                slidesPerView: 3,
+            },
+            1610: {
+                slidesPerView: 4,
+            }
+        }
+    });
+
+    // END FLASHLIGHTS SLIDER
+
+    // CARD PAGE SIMILAR SLIDER
+
+    const similarSwiper = new Swiper('.similar__carousel', {
+        modules: [Pagination, Autoplay],
+        slidesPerView: 4,
+        spaceBetween: 30,
+        // autoplay: {
+        //     delay: 2000,
+        //     disableOnInteraction: false,
+        // },
+        pagination: {
+            el: '.similar__pagination',
+            clickable: true,
+            renderBullet: function(index, className) {
+                return '<div class="pagination-slider-common__bullet"><span class="pagination-slider-common__line"></span></div>'
+            },
+            bulletClass: 'pagination-slider-common__bullet',
+            bulletActiveClass: 'pagination-slider-common__bullet_active'
+        },
         breakpoints: {
             320: {
                 slidesPerView: 1,
@@ -171,7 +298,44 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // END BESTSELLERS SLIDER
+    // END SIMILAR SLIDER
+
+    // CARD PAGE SIMILAR SLIDER
+
+    const recomendSwiper = new Swiper('.recomendated__carousel', {
+        modules: [Pagination, Autoplay],
+        slidesPerView: 4,
+        spaceBetween: 30,
+        // autoplay: {
+        //     delay: 2000,
+        //     disableOnInteraction: false,
+        // },
+        pagination: {
+            el: '.recomendated__pagination',
+            clickable: true,
+            renderBullet: function(index, className) {
+                return '<div class="pagination-slider-common__bullet"><span class="pagination-slider-common__line"></span></div>'
+            },
+            bulletClass: 'pagination-slider-common__bullet',
+            bulletActiveClass: 'pagination-slider-common__bullet_active'
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1,
+            },
+            768: {
+                slidesPerView: 2,
+            },
+            1200: {
+                slidesPerView: 3,
+            },
+            1609: {
+                slidesPerView: 4,
+            },
+        }
+    });
+
+    // END SIMILAR SLIDER
 
     // CATEGORY COST SCROLL(SLIDER) ========================================>
     
