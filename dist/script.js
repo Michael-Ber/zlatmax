@@ -13533,6 +13533,7 @@ window.addEventListener('DOMContentLoaded', () => {
     modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_0__["Navigation"]],
     slidesPerView: 1,
     spaceBetween: 20,
+    centeredSlides: true,
     navigation: {
       nextEl: '.navigation-products-category__next',
       prevEl: '.navigation-products-category__prev'

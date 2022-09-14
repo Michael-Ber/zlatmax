@@ -343,6 +343,7 @@ window.addEventListener('DOMContentLoaded', () => {
         modules: [Pagination, Autoplay, Navigation],
         slidesPerView: 1,
         spaceBetween: 20,
+        centeredSlides: true,
         navigation: {
             nextEl: '.navigation-products-category__next',
             prevEl: '.navigation-products-category__prev',
