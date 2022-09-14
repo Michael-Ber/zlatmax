@@ -373,16 +373,12 @@
 }
 .products-category {
 
+    &__carousel {
+        margin: -20px;
+        padding: 20px;
+    }
+
     &__wrapper {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        row-gap: 30px;
-        column-gap: 30px;
-        @media(max-width: 1609px) {
-            justify-content: center;
-        }
     }
 
     &__card {
@@ -390,6 +386,7 @@
     }
 
     &__footer {
+        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -409,69 +406,68 @@
     }
 
     &__pagination {
-        width: 300px;
+        width: 210px !important;
+        overflow: hidden;
+        margin-right: 30px;
+        position: relative;
+        z-index: 10;
+    }
+    &__pagination-wrapper {
         display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        column-gap: 12px;
+        transition: .3s all;
+    }
+
+    &__slide {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 30px;
     }
 
     
-    &__prev {
-        margin-right: 30px;
-        border: none;
-        background-color: #fff;
-        svg {
-            transform: rotate(180deg) scale(2);
-        }
-        &:disabled {
-            svg {
-                fill: rgba(#000, .12);
-            }
-        }
-    }
-    &__next {
-        margin-left: 30px;
-        cursor: pointer;
-        svg {
-            transform: scale(2);
-        }
-    }
-    &__slide {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: flex-start;
-        flex-wrap: wrap;
-    }
-
-    &__navigation {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        @media(max-width: 575px) {
-            display: none;
-        }
-    }
     &__list {
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
     &__item {
-        width: 34px;
-        height: 34px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 34px;
+        min-height: 34px;
+        font-size: 18px;
+        line-height: 32px;
         border-radius: 100%;
+        user-select: none;
+        cursor: pointer;
         &_active {
             background-color: $main-color;
-            a {
-                color: #ffffff;
-            }
+            color: #ffffff;
+        }
+        &_disabled {
+            display: none;
         }
         &:hover {
             background-color: $main-color;
-            a {
-                color: #ffffff;
-            }
+            color: #ffffff;
         }
-        & + & {
-            margin-left: 12px;
+    }
+    &__dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+        line-height: 32px;
+        user-select: none;
+        &_disabled {
+            display: none;
         }
     }
     &__link {
@@ -483,6 +479,60 @@
         width: 100%;
         height: 100%;
         color: #000000;
+    }
+    &__navigation {
+        width: 300px;
+        height: 43px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+        @media(max-width: 575px) {
+            display: none;
+        }
+    }
+}
+
+
+.navigation-products-category {
+    &__next {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 34px;
+        height: 44px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        svg {
+            transform: scale(2);
+        }
+    }
+    &__prev {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 34px;
+        height: 44px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: none;
+        background-color: #fff;
+        cursor: pointer;
+        svg {
+            transform: rotate(180deg) scale(2);
+        }
+        &:disabled {
+            svg {
+                fill: rgba(#000, .12);
+            }
+        }
     }
 }
 

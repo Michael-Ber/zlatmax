@@ -69,6 +69,7 @@ body {
     background-color: $main-color;
     transition: .2s all;
     cursor: pointer;
+    user-select: none;
     &:hover {
         background-color: darken($main-color, 10%);
     }

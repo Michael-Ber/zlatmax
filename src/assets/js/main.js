@@ -337,6 +337,99 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // END SIMILAR SLIDER
 
+    //CATEGORY SLIDER
+
+    const categorySwiper = new Swiper('.products-category__carousel', {
+        modules: [Pagination, Autoplay, Navigation],
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: '.navigation-products-category__next',
+            prevEl: '.navigation-products-category__prev',
+        },
+        pagination: {
+            el: '.products-category__pagination-wrapper',
+            clickable: true,
+            renderBullet: function(index, className) {
+                const slides = document.querySelectorAll('.products-category__slide');
+                
+                if(slides.length > 5) {
+                    if(index < 3) {
+                        if(index == 0) {
+                            return `<span class="products-category__item products-category__item_active">${index+1}</span>`;
+                        }else {
+                            return `<span class="products-category__item">${index+1}</span>`;
+                        }
+                    }else if(index >=3 && index < slides.length-2){
+                        return `<span class="products-category__item products-category__item_disabled">${index+1}</span>`;
+                    }else if(index == slides.length-2){
+                        return `<span class="products-category__item products-category__item_disabled">${index+1}</span> <span class="products-category__dots">...</span>`;
+                    }else {
+                        return `<span class="products-category__item">${index+1}</span>`;
+                    }
+                }else {
+                    return `<span class="products-category__item">${index+1}</span>`
+                }
+            },
+            bulletClass: 'products-category__item',
+            bulletActiveClass: 'products-category__item_active'
+        },
+        on: {
+            slideChange: function(swiper) {
+                const wrapper = document.querySelector('.products-category__pagination-wrapper');
+                const items = document.querySelectorAll('.products-category__item');
+                const dots = document.querySelector('.products-category__dots');
+                const itemWidth = window.getComputedStyle(items[0]).width.slice(0, -2);
+                const prev = document.querySelector('.navigation-products-category__prev svg');
+                const next = document.querySelector('.navigation-products-category__next svg');
+
+
+                let actIndex = swiper.activeIndex;
+                let offset = (actIndex-1) * (Number(itemWidth) + 12);
+                
+                if(swiper.activeIndex >=1 && swiper.activeIndex <= items.length-1) {
+                    
+                    if(swiper.previousIndex > swiper.activeIndex && (items.length - swiper.previousIndex) > 2) {                              //prev
+                        items[swiper.activeIndex + 2].classList.add('products-category__item_disabled');
+                        wrapper.style.transform = `translateX(-${offset}px)`;
+                    }else if(swiper.activeIndex < items.length-1){     //next
+                        items[swiper.activeIndex + 1].classList.remove('products-category__item_disabled');
+                        wrapper.style.transform = `translateX(-${offset}px)`;
+                    }else if(swiper.activeIndex == items.length-1) {   //click to last slide
+                        items.forEach(item => {
+                            item.classList.remove('products-category__item_disabled');
+                            wrapper.style.transform = `translateX(-${(items.length-3)*(Number(itemWidth) + 12)}px)`;
+                        })
+                    }
+                    
+                }else {
+                    wrapper.style.transform = `translateX(${0}px)`;
+                }
+                // Remove or add dots
+                if(items.length - swiper.activeIndex <= 4) {
+                    dots.classList.add('products-category__dots_disabled');
+                    items[items.length - 2].classList.remove('products-category__item_disabled');
+                }else {
+                    dots.classList.remove('products-category__dots_disabled');
+                    items[items.length - 2].classList.add('products-category__item_disabled');
+                }
+
+                //navigation arrows change color
+
+                if(swiper.activeIndex > 0 && swiper.activeIndex < items.length - 1) {
+                    prev.style.fill = '#e8aa31';
+                    next.style.fill = '#e8aa31';
+                }else if(swiper.activeIndex == 0) {
+                    prev.style.fill = '#ababab';
+                }else if(swiper.activeIndex == items.length - 1) {
+                    next.style.fill = '#ababab';
+                }
+            }
+        }
+    });
+
+    //END CATEGORY SLIDER
+
     // CATEGORY COST SCROLL(SLIDER) ========================================>
     
     try{scrollBar('.slider-1', 20000,'#e8aa31', '#141414', '.slider-cost__val', 10, 25)}catch(e){console.log(e)};

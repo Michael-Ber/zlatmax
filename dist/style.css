@@ -2714,23 +2714,15 @@ table {
   margin-left: 10px;
 }
 
-.products-category__wrapper {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  row-gap: 30px;
-  column-gap: 30px;
-}
-@media (max-width: 1609px) {
-  .products-category__wrapper {
-    justify-content: center;
-  }
+.products-category__carousel {
+  margin: -20px;
+  padding: 20px;
 }
 .products-category__card {
   height: 465px;
 }
 .products-category__footer {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -2752,42 +2744,25 @@ table {
   }
 }
 .products-category__pagination {
-  width: 300px;
-  display: flex;
-}
-.products-category__prev {
+  width: 210px !important;
+  overflow: hidden;
   margin-right: 30px;
-  border: none;
-  background-color: #fff;
+  position: relative;
+  z-index: 10;
 }
-.products-category__prev svg {
-  transform: rotate(180deg) scale(2);
-}
-.products-category__prev:disabled svg {
-  fill: rgba(0, 0, 0, 0.12);
-}
-.products-category__next {
-  margin-left: 30px;
-  cursor: pointer;
-}
-.products-category__next svg {
-  transform: scale(2);
+.products-category__pagination-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  column-gap: 12px;
+  transition: 0.3s all;
 }
 .products-category__slide {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-}
-.products-category__navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-@media (max-width: 575px) {
-  .products-category__navigation {
-    display: none;
-  }
+  gap: 30px;
 }
 .products-category__list {
   display: flex;
@@ -2795,24 +2770,40 @@ table {
   align-items: center;
 }
 .products-category__item {
-  width: 34px;
-  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 34px;
+  min-height: 34px;
+  font-size: 18px;
+  line-height: 32px;
   border-radius: 100%;
+  user-select: none;
+  cursor: pointer;
 }
 .products-category__item_active {
   background-color: #e8aa31;
-}
-.products-category__item_active a {
   color: #ffffff;
+}
+.products-category__item_disabled {
+  display: none;
 }
 .products-category__item:hover {
   background-color: #e8aa31;
-}
-.products-category__item:hover a {
   color: #ffffff;
 }
-.products-category__item + .products-category__item {
-  margin-left: 12px;
+.products-category__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+  font-size: 18px;
+  line-height: 32px;
+  user-select: none;
+}
+.products-category__dots_disabled {
+  display: none;
 }
 .products-category__link {
   display: block;
@@ -2823,6 +2814,57 @@ table {
   width: 100%;
   height: 100%;
   color: #000000;
+}
+.products-category__navigation {
+  width: 300px;
+  height: 43px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+@media (max-width: 575px) {
+  .products-category__navigation {
+    display: none;
+  }
+}
+
+.navigation-products-category__next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 44px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.navigation-products-category__next svg {
+  transform: scale(2);
+}
+.navigation-products-category__prev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 44px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+.navigation-products-category__prev svg {
+  transform: rotate(180deg) scale(2);
+}
+.navigation-products-category__prev:disabled svg {
+  fill: rgba(0, 0, 0, 0.12);
 }
 
 .swiper-button-disabled svg {
@@ -3769,6 +3811,7 @@ body {
   background-color: #e8aa31;
   transition: 0.2s all;
   cursor: pointer;
+  user-select: none;
 }
 .btn:hover {
   background-color: #cf9117;
