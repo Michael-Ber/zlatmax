@@ -13119,6 +13119,39 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/assets/js/accordeon.js":
+/*!************************************!*\
+  !*** ./src/assets/js/accordeon.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// CATALOG ACCORDEON
+function accordeon(btnSelector, activeBtnSelector) {
+  const trig = document.querySelectorAll(btnSelector);
+  trig.forEach(item => {
+    item.addEventListener('click', e => {
+      const btnACtive = e.target.classList.contains(activeBtnSelector) || e.target.parentNode.parentNode.classList.contains(activeBtnSelector);
+
+      if (btnACtive) {
+        item.nextElementSibling.style.display = 'none';
+        item.parentNode.style.paddingBottom = '0px';
+        item.classList.remove(activeBtnSelector);
+      } else {
+        item.nextElementSibling.style.display = 'block';
+        item.parentNode.style.paddingBottom = '40px';
+        item.classList.add(activeBtnSelector);
+      }
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (accordeon); // END CATALOG ACCORDEON
+
+/***/ }),
+
 /***/ "./src/assets/js/burger.js":
 /*!*********************************!*\
   !*** ./src/assets/js/burger.js ***!
@@ -13175,7 +13208,6 @@ function inputModify(inputSelector, minusSelector, plusSelector) {
   const input = document.querySelector(inputSelector),
         minus = document.querySelector(minusSelector),
         plus = document.querySelector(plusSelector);
-  console.log(input, minus, plus);
   plus.addEventListener('click', () => {
     input.value++;
   });
@@ -13207,6 +13239,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tab */ "./src/assets/js/tab.js");
 /* harmony import */ var _sliderBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sliderBar */ "./src/assets/js/sliderBar.js");
 /* harmony import */ var _inputModif__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./inputModif */ "./src/assets/js/inputModif.js");
+/* harmony import */ var _accordeon__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./accordeon */ "./src/assets/js/accordeon.js");
+/* harmony import */ var _starsAnimation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./starsAnimation */ "./src/assets/js/starsAnimation.js");
+
+
 
 
 
@@ -13289,7 +13325,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // slidesPerView: 1,
     spaceBetween: 30,
     autoplay: {
-      delay: 122000,
+      delay: 2000,
       disableOnInteraction: false
     },
     pagination: {
@@ -13313,22 +13349,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const activeFraction = document.querySelector('.carousel-main__current');
         activeFraction.innerHTML = swiper.slides.length < 10 ? `0${swiper.activeIndex + 1}` : swiper.activeIndex;
       }
-    } // breakpointsBase: 'window',
-    // breakpoints: {
-    //     320: {
-    //         slidesPerView: 1,
-    //     },
-    //     768: {
-    //         slidesPerView: 2,
-    //     },
-    //     1200: {
-    //         slidesPerView: 3,
-    //     },
-    //     1609: {
-    //         slidesPerView: 4,
-    //     },
-    // }
-
+    }
   }); // END MAIN CAROUSEL
   // BESTSELLERS SLIDER
 
@@ -13336,9 +13357,9 @@ window.addEventListener('DOMContentLoaded', () => {
     spaceBetween: 30,
     slidesPerView: 4,
     modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"]],
-    // autoplay: {
-    //     delay: 2000
-    // },
+    autoplay: {
+      delay: 2000
+    },
     pagination: {
       el: '.slider-bestsellers__pagination',
       clickable: true,
@@ -13369,9 +13390,9 @@ window.addEventListener('DOMContentLoaded', () => {
     modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"]],
     spaceBetween: 30,
     slidesPerView: 1,
-    // autoplay: {
-    //     delay: 2000
-    // },
+    autoplay: {
+      delay: 2000
+    },
     pagination: {
       el: '.slider-novelty__pagination',
       clickable: true,
@@ -13399,9 +13420,9 @@ window.addEventListener('DOMContentLoaded', () => {
     modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"]],
     slidesPerView: 4,
     spaceBetween: 30,
-    // autoplay: {
-    //     delay: 2000
-    // },
+    autoplay: {
+      delay: 2000
+    },
     pagination: {
       el: '.slider-stock__pagination',
       clickable: true,
@@ -13432,9 +13453,9 @@ window.addEventListener('DOMContentLoaded', () => {
     modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"]],
     slidesPerView: 4,
     spaceBetween: 30,
-    // autoplay: {
-    //     delay: 2000
-    // },
+    autoplay: {
+      delay: 2000
+    },
     pagination: {
       el: '.slider-flashlights__pagination',
       clickable: true,
@@ -13465,10 +13486,10 @@ window.addEventListener('DOMContentLoaded', () => {
     modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"]],
     slidesPerView: 4,
     spaceBetween: 30,
-    // autoplay: {
-    //     delay: 2000,
-    //     disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false
+    },
     pagination: {
       el: '.similar__pagination',
       clickable: true,
@@ -13499,10 +13520,10 @@ window.addEventListener('DOMContentLoaded', () => {
     modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"]],
     slidesPerView: 4,
     spaceBetween: 30,
-    // autoplay: {
-    //     delay: 2000,
-    //     disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false
+    },
     pagination: {
       el: '.recomendated__pagination',
       clickable: true,
@@ -13656,7 +13677,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // ACCORDEON CATEGORY PAGE
 
   try {
-    accordeon('.filter-category__accordeon', 'filter-category__accordeon_active');
+    Object(_accordeon__WEBPACK_IMPORTED_MODULE_6__["default"])('.filter-category__accordeon', 'filter-category__accordeon_active');
   } catch (e) {
     console.log(e);
   }
@@ -13671,6 +13692,9 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   ; // END INPUT MODIFICATION
+  //STARS RATING
+
+  Object(_starsAnimation__WEBPACK_IMPORTED_MODULE_7__["default"])('.stars-wrapper', '.star-item'); //END STARS RATING
 });
 
 /***/ }),
@@ -13714,7 +13738,6 @@ const telSpread = function () {
     if (!subList.classList.contains(listActiveClass)) {
       subList.classList.add(listActiveClass);
       btn.classList.add(arrowActiveClass);
-      console.log(subList.scrollHeight, subList.scrollTop, subList.offsetHeight);
       subList.style.maxHeight = subList.scrollHeight + 'px';
     } else {
       subList.classList.remove(listActiveClass);
@@ -13772,6 +13795,35 @@ function scrollBar(wrapper, maximum, colorTrack, colorActiveTrack, valClass, min
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (scrollBar); // END CATEGORY COST SCROLL (SLIDER) =======================================>
+
+/***/ }),
+
+/***/ "./src/assets/js/starsAnimation.js":
+/*!*****************************************!*\
+  !*** ./src/assets/js/starsAnimation.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const stars = (wrapperSelector, starSelector) => {
+  const wrapper = document.querySelectorAll(wrapperSelector);
+  wrapper.forEach(elem => {
+    const starNode = elem.children;
+    const starArray = Array.from(starNode);
+    starArray.forEach(item => {
+      item.addEventListener('click', () => {
+        const {
+          itemVal
+        } = item.dataset;
+        elem.dataset.totalVal = itemVal;
+      });
+    });
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (stars);
 
 /***/ }),
 

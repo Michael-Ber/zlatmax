@@ -80,28 +80,11 @@
         margin-left: 5px;
     }
 }
-.slider-bestsellers, .common-slider {
-
-    &__wrapper {
-    }
-
-    // &__slide {
-        
-    //     @media(max-width: 1199px) {
-    //         justify-content: center !important;
-    //     }
-    //     @media(max-width: 575px) {
-    //         justify-content: center !important;
-    //     };
-    // }
-
-}
 .slide-common {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
-    // column-gap: 30px;
     row-gap: 30px;
     flex: 0 0 100%;
 }

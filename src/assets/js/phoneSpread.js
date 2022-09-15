@@ -17,7 +17,6 @@ const telSpread = ({parentSelector, btnSelector, classes: {listClass, itemClass,
         if(!subList.classList.contains(listActiveClass)) {
             subList.classList.add(listActiveClass);
             btn.classList.add(arrowActiveClass);
-            console.log(subList.scrollHeight, subList.scrollTop, subList.offsetHeight);
             subList.style.maxHeight = subList.scrollHeight + 'px';
         }else {
             subList.classList.remove(listActiveClass);

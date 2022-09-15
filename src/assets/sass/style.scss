@@ -262,3 +262,29 @@ body {
         }
     }
 }
+
+.stars-wrapper {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row-reverse;
+    transition: .3s all;
+}
+.star-item {
+    color: $third-color;
+    font-size: 24px;
+    cursor: pointer;
+    & + & {
+        padding-right: 5px;
+    }
+    &:hover, &:hover ~ .star-item{
+        color: $main-color;
+    }
+}
+.stars-wrapper[data-total-val='1'] .star-item:nth-child(n+5),
+.stars-wrapper[data-total-val='2'] .star-item:nth-child(n+4),
+.stars-wrapper[data-total-val='3'] .star-item:nth-child(n+3),
+.stars-wrapper[data-total-val='4'] .star-item:nth-child(n+2),
+.stars-wrapper[data-total-val='5'] .star-item:nth-child(n+1) {
+    color: $main-color;
+}

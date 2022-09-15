@@ -316,7 +316,7 @@
         z-index: 1000;
         box-shadow: 0 0 20px $sec-color;
         &_active {
-            padding: 5px;
+            padding: 15px;
         }
     } 
     &__item {
@@ -353,11 +353,6 @@
             column-gap: 30px;
         }
     }
-
-    &__item {
-        
-    }
-
     &__link {
         color: #ffffff;
         text-decoration: none;
@@ -392,9 +387,7 @@
     }
 }
 .burger-list {
-    // position: relative;
     overflow: hidden;
-    // padding: 20px 20px 40px 20px;
     
 }
 .up-burger {
@@ -452,11 +445,6 @@
         &::after {
             content: url('./assets/icons/main/arrow-right.svg');
         }
-    }
-}
-.burger-header {
-
-    &__line {
     }
 }
 .burger-menu-header {
@@ -521,27 +509,6 @@
 
 .nav-burger {
 
-    &__list {
-        // position: relative;
-        // overflow: hidden;
-        // padding: 20px 20px 40px 20px;
-    }
-
-    &__item {
-        // & + & {
-        //     margin-top: 20px;
-        // }
-        // &_next {
-        //     display: flex;
-        //     justify-content: space-between;
-        //     align-items: center;
-        //     cursor: pointer;
-        //     &::after {
-        //         content: url('./assets/icons/main/arrow-right.svg');
-        //     }
-        // }
-    }
-
     &__link {
         font-size: 16px;
         line-height: 20px;
@@ -551,37 +518,4 @@
             color: $main-color;
         }
     }
-    &__up {
-        // display: flex;
-        // justify-content: flex-end;
-        // align-items: center;
-        // margin-bottom: 30px;
-        // &_back {
-        //     justify-content: space-between;
-        // }
-    }
-    &__back {
-        // display: none;
-        // justify-content: center;
-        // align-items: center;
-        // color: #ffffff;
-        // font-size: 16px;
-        // cursor: pointer;
-        // &::before {
-        //     content: url('./assets/icons/main/arrow-back.svg');
-        //     margin-right: 10px;
-        // }
-        // &_active {
-        //     display: flex;
-        // }
-    }
-    &__close {
-        // color: #ffffff;
-        // font-size: 20px;
-        // text-align: right;
-        // cursor: pointer;
-    }
-}
-.item-nav-burger {
-    
 }

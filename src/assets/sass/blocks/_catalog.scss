@@ -186,9 +186,6 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        // @media(max-width: 575px) {
-        //     align-items: center;
-        // }
     }
 
     &__elem {
@@ -204,7 +201,6 @@
             position: absolute;
             top: -3px;
             left: 0;
-            // transform: translateY(-55%);
             @media(max-width: 575px) {
                 left: 40px;
             }

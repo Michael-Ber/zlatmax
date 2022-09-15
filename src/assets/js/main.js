@@ -6,6 +6,8 @@ import burger from './burger';
 import tabs from './tab';
 import scrollBar from './sliderBar';
 import inputModify from './inputModif';
+import accordeon from './accordeon';
+import stars from './starsAnimation';
 
 window.addEventListener('DOMContentLoaded', () => {
 
@@ -80,7 +82,7 @@ window.addEventListener('DOMContentLoaded', () => {
         // slidesPerView: 1,
         spaceBetween: 30,
         autoplay: {
-            delay: 122000,
+            delay: 2000,
             disableOnInteraction: false,
         },
         pagination: {
@@ -106,21 +108,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 
             }
         }
-        // breakpointsBase: 'window',
-        // breakpoints: {
-        //     320: {
-        //         slidesPerView: 1,
-        //     },
-        //     768: {
-        //         slidesPerView: 2,
-        //     },
-        //     1200: {
-        //         slidesPerView: 3,
-        //     },
-        //     1609: {
-        //         slidesPerView: 4,
-        //     },
-        // }
     });
 
     // END MAIN CAROUSEL
@@ -131,9 +118,9 @@ window.addEventListener('DOMContentLoaded', () => {
         spaceBetween: 30,
         slidesPerView: 4,
         modules: [Pagination, Autoplay],
-        // autoplay: {
-        //     delay: 2000
-        // },
+        autoplay: {
+            delay: 2000
+        },
         pagination: {
             el: '.slider-bestsellers__pagination',
             clickable: true,
@@ -166,9 +153,9 @@ window.addEventListener('DOMContentLoaded', () => {
         modules: [Pagination, Autoplay],
         spaceBetween: 30,
         slidesPerView: 1,
-        // autoplay: {
-        //     delay: 2000
-        // },
+        autoplay: {
+            delay: 2000
+        },
         pagination: {
             el: '.slider-novelty__pagination',
             clickable: true,
@@ -198,9 +185,9 @@ window.addEventListener('DOMContentLoaded', () => {
         modules: [Pagination, Autoplay],
         slidesPerView: 4,
         spaceBetween: 30,
-        // autoplay: {
-        //     delay: 2000
-        // },
+        autoplay: {
+            delay: 2000
+        },
         pagination: {
             el: '.slider-stock__pagination',
             clickable: true,
@@ -233,9 +220,9 @@ window.addEventListener('DOMContentLoaded', () => {
         modules: [Pagination, Autoplay],
         slidesPerView: 4,
         spaceBetween: 30,
-        // autoplay: {
-        //     delay: 2000
-        // },
+        autoplay: {
+            delay: 2000
+        },
         pagination: {
             el: '.slider-flashlights__pagination',
             clickable: true,
@@ -269,10 +256,10 @@ window.addEventListener('DOMContentLoaded', () => {
         modules: [Pagination, Autoplay],
         slidesPerView: 4,
         spaceBetween: 30,
-        // autoplay: {
-        //     delay: 2000,
-        //     disableOnInteraction: false,
-        // },
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
         pagination: {
             el: '.similar__pagination',
             clickable: true,
@@ -306,10 +293,10 @@ window.addEventListener('DOMContentLoaded', () => {
         modules: [Pagination, Autoplay],
         slidesPerView: 4,
         spaceBetween: 30,
-        // autoplay: {
-        //     delay: 2000,
-        //     disableOnInteraction: false,
-        // },
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
         pagination: {
             el: '.recomendated__pagination',
             clickable: true,
@@ -466,6 +453,10 @@ window.addEventListener('DOMContentLoaded', () => {
     try{inputModify('.order-content-card-item__input', '.order-content-card-item__input-minus', '.order-content-card-item__input-plus')}catch(e){console.log(e)} ;
 
     // END INPUT MODIFICATION
+
+    //STARS RATING
+    stars('.stars-wrapper', '.star-item');
+    //END STARS RATING
 
 
 });

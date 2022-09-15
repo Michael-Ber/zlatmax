@@ -5,7 +5,6 @@ function inputModify(inputSelector, minusSelector, plusSelector) {
           minus = document.querySelector(minusSelector),
           plus = document.querySelector(plusSelector);
           
-    console.log(input, minus, plus);
     plus.addEventListener('click', () => {
         input.value++;
     });

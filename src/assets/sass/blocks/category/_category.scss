@@ -34,7 +34,6 @@
         -moz-appearance:none; 
         -webkit-appearance:none;
         cursor: pointer;
-        // background: url('./assets/icons/main/arrow-right.png') 98% 50% no-repeat;
         @media(max-width: 767px) {
             width: 250px;
         }
@@ -164,8 +163,6 @@
     &__img {
         transform: rotate(180deg);
     }
-
-
 }
 
 .category-padding {
@@ -194,14 +191,6 @@
         justify-content: center;
         align-items: center;
         border: 1px solid $third-color;
-    }
-}
-.slider-cost {
-
-    &__min {
-    }
-
-    &__max {
     }
 }
 .slider-main {
@@ -377,10 +366,6 @@
         margin: -20px;
         padding: 20px;
     }
-
-    &__wrapper {
-    }
-
     &__card {
         height: 465px;
     }
@@ -429,9 +414,6 @@
         align-items: flex-start;
         flex-wrap: wrap;
         gap: 30px;
-        // @media(max-width: 991px) {
-        //     justify-content: center;
-        // }
     }
 
     
@@ -557,11 +539,6 @@
         width: 30px;
         height: 30px;
         color: #000;
-    }
-}
-.stars-slide {
-
-    &__item {
     }
 }
 .footer-products {
