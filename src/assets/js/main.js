@@ -12,23 +12,23 @@ import stars from './starsAnimation';
 window.addEventListener('DOMContentLoaded', () => {
 
    
-     // image on main resize
+    //  // image on main resize
     
-        window.addEventListener('resize', () => {
-            try {
-                const benefitsElement = document.querySelector('.main__benefits');
-                const screenWidth = window.screen.availWidth;
-                if(screenWidth < 576) {
-                    benefitsElement.style.marginTop = `${screenWidth}px`;
-                }else if(screenWidth > 575 && screenWidth < 992){
-                    benefitsElement.style.marginTop = `50px`;
-                }else {
-                    benefitsElement.style.marginTop = `200px`;
-                }
-            }catch(e) {console.log(e)}
-        })
+    //     window.addEventListener('resize', () => {
+    //         try {
+    //             const benefitsElement = document.querySelector('.main__benefits');
+    //             const screenWidth = window.screen.availWidth;
+    //             if(screenWidth < 768) {
+    //                 benefitsElement.style.marginTop = `${screenWidth}px`;
+    //             }else if(screenWidth > 767 && screenWidth < 992){
+    //                 benefitsElement.style.marginTop = `50px`;
+    //             }else {
+    //                 benefitsElement.style.marginTop = `200px`;
+    //             }
+    //         }catch(e) {console.log(e)}
+    //     })
     
-    // end image on main resize
+    // // end image on main resize
    
     // PHONE SPREAD ON HEADER
 
@@ -81,10 +81,10 @@ window.addEventListener('DOMContentLoaded', () => {
         modules: [Pagination, Autoplay],
         // slidesPerView: 1,
         spaceBetween: 30,
-        autoplay: {
-            delay: 2000,
-            disableOnInteraction: false,
-        },
+        // autoplay: {
+        //     delay: 2000,
+        //     disableOnInteraction: false,
+        // },
         pagination: {
             el: '.carousel-main__pagination',
             clickable: true,
@@ -100,7 +100,6 @@ window.addEventListener('DOMContentLoaded', () => {
                       totalFraction = document.querySelector('.carousel-main__total');
                 activeFraction.innerHTML = swiper.slides.length < 10 ?`0${swiper.activeIndex+1}` : swiper.activeIndex;
                 totalFraction.innerHTML = swiper.slides.length;
-                console.log(typeof(swiper.activeIndex));
             },
             slideChange: function(swiper) {
                 const activeFraction = document.querySelector('.carousel-main__current');
